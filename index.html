@@ -48,70 +48,48 @@ color:#333;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:40px 100px 40px 100px;
+padding:20px 100px 30px 100px;
 background:linear-gradient(180deg,#f7f6f8,#f2eef4);
 }
 
 .hero-text{
-max-width:640px;
+max-width:760px;
 }
 
-/* TYPEWRITER TITLE */
+/* TYPEWRITER */
 
-.hero h1{
+.typewriter{
 font-size:64px;
 font-weight:800;
-margin-bottom:10px;
+margin-bottom:15px;
 border-right:3px solid #444;
-width:0;
-overflow:hidden;
 white-space:nowrap;
-animation:typing 2s steps(25,end) forwards, blink .8s infinite;
+overflow:hidden;
+width:0;
+animation:typing 3s steps(35,end) forwards, blink .8s infinite;
 }
 
 @keyframes typing{
-to{width:100%}
+from{width:0}
+to{width:620px}
 }
 
 @keyframes blink{
 50%{border-color:transparent}
 }
 
-/* KEYWORD CAROUSEL */
-
-.carousel{
-font-weight:700;
-color:#6a2d7a;
-height:28px;
-overflow:hidden;
-margin-bottom:20px;
-}
-
-.carousel span{
-display:block;
-animation:rotateWords 8s infinite;
-}
-
-@keyframes rotateWords{
-0%{transform:translateY(0)}
-25%{transform:translateY(-28px)}
-50%{transform:translateY(-56px)}
-75%{transform:translateY(-84px)}
-100%{transform:translateY(0)}
-}
-
 .hero p{
 font-size:18px;
-line-height:1.7;
+line-height:1.8;
 color:#555;
 }
 
+/* FLOATING HERO LOGO */
+
 .hero-logo{
-width:440px;
+width:430px;
 animation:float 5s ease-in-out infinite;
 }
-
-/* FLOATING LOGO */
 
 @keyframes float{
 0%{transform:translateY(0)}
@@ -150,7 +128,7 @@ border:2px solid #555;
 background:white;
 }
 
-/* SECTION */
+/* SECTIONS */
 
 .section{
 padding:80px 100px;
@@ -176,17 +154,9 @@ transition:transform .3s;
 transform:translateY(-10px);
 }
 
-.card1{
-background:linear-gradient(135deg,#3d1d70,#c94a55);
-}
-
-.card2{
-background:linear-gradient(135deg,#c43b55,#f09a36);
-}
-
-.card3{
-background:linear-gradient(135deg,#f07b43,#f5c34b);
-}
+.card1{background:linear-gradient(135deg,#3d1d70,#c94a55);}
+.card2{background:linear-gradient(135deg,#c43b55,#f09a36);}
+.card3{background:linear-gradient(135deg,#f07b43,#f5c34b);}
 
 /* STATS */
 
@@ -199,12 +169,39 @@ justify-content:space-around;
 text-align:center;
 }
 
+/* INSTITUTION CAROUSEL */
+
+.logo-carousel{
+overflow:hidden;
+background:white;
+padding:30px 0;
+margin-top:40px;
+}
+
+.logo-track{
+display:flex;
+gap:60px;
+animation:scroll 20s linear infinite;
+align-items:center;
+}
+
+.logo-track img{
+height:40px;
+opacity:.8;
+}
+
+@keyframes scroll{
+from{transform:translateX(0)}
+to{transform:translateX(-50%)}
+}
+
 /* TEAM */
 
 .team{
 display:flex;
 gap:30px;
 margin-top:40px;
+flex-wrap:wrap;
 }
 
 .member{
@@ -212,12 +209,13 @@ background:white;
 border-radius:20px;
 overflow:hidden;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
-flex:1;
+width:260px;
+cursor:pointer;
 transition:transform .3s;
 }
 
 .member:hover{
-transform:translateY(-10px);
+transform:translateY(-6px);
 }
 
 .member img{
@@ -236,14 +234,23 @@ font-weight:600;
 margin-top:5px;
 }
 
-.bio{
+.bio.long{
+display:none;
 margin-top:10px;
 font-size:14px;
 color:#666;
 line-height:1.6;
 }
 
-/* FADE IN ON SCROLL */
+.member.active .bio.long{
+display:block;
+}
+
+.member.active .bio.short{
+display:none;
+}
+
+/* FADE ANIMATION */
 
 .fade{
 opacity:0;
@@ -284,33 +291,21 @@ transform:translateY(0);
 
 <div class="hero-text">
 
-<h1>Welcome to Illumina Health Lab</h1>
-
-<div class="carousel">
-
-<span>
-Artificial Intelligence
-Global Health
-Health Equity
-Cardiovascular Science
-</span>
-
-</div>
+<h1 class="typewriter">Welcome to Illumina Health Lab</h1>
 
 <p>
 
 Welcome to the central hub for all Illumina Health Lab projects, resources, and collaborations.
 
-Illumina Health Lab advances research at the intersection of health equity, the social determinants of health, medicine, and artificial intelligence. Our work focuses especially on cardiovascular and cardiometabolic health — exploring how structural inequities shape risk, prevention, diagnosis, and outcomes across conditions including hypertension, diabetes, obesity, and cardiovascular disease.
+Illumina Health Lab advances research at the intersection of health equity, social determinants of health, medicine, and artificial intelligence. Our work focuses especially on cardiovascular and cardiometabolic health — exploring how structural inequities shape risk, prevention, diagnosis, and outcomes across conditions including hypertension, diabetes, obesity, and cardiovascular disease.
 
-We aim to illuminate hidden injustices within health systems and design ethical, intelligent tools that strengthen equitable care.
+We aim to illuminate hidden injustices within health systems, generate evidence that uplifts marginalized populations, and design intelligent, ethical tools that strengthen equitable care.
 
 </p>
 
 <div class="buttons">
 
 <button class="btn btn-primary">OUR MISSION</button>
-
 <button class="btn btn-outline">GET INVOLVED</button>
 
 </div>
@@ -330,7 +325,7 @@ We aim to illuminate hidden injustices within health systems and design ethical,
 
 <div class="card card1">
 <h3>Medicine & AI</h3>
-<p>Developing ethical AI tools to transform clinical decision making.</p>
+<p>Developing ethical AI tools that transform clinical decision making.</p>
 </div>
 
 <div class="card card2">
@@ -373,13 +368,58 @@ Universities
 </section>
 
 
+<section class="logo-carousel">
+
+<div class="logo-track">
+
+<img src="harvard.png">
+<img src="duke.png">
+<img src="rutgers.png">
+<img src="mcmaster.png">
+<img src="stanford.png">
+<img src="camh.png">
+
+<img src="harvard.png">
+<img src="duke.png">
+<img src="rutgers.png">
+<img src="mcmaster.png">
+<img src="stanford.png">
+<img src="camh.png">
+
+</div>
+
+</section>
+
+
 <section class="section fade">
 
 <h2>Our Team</h2>
 
 <div class="team">
 
-<div class="member">
+<div class="member" onclick="toggleBio(this)">
+
+<img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+
+<div class="member-info">
+
+<h3>Imeth Illamperuma</h3>
+<div class="subtitle">Founder & Director</div>
+
+<p class="bio short">
+Founder of Illumina Health Lab.
+</p>
+
+<p class="bio long">
+Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary research network focused on health equity, cardiometabolic disease, and ethical applications of artificial intelligence in healthcare.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="member" onclick="toggleBio(this)">
 
 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330">
 
@@ -388,9 +428,12 @@ Universities
 <h3>Dr. Aisha Patel</h3>
 <div class="subtitle">Research Lead</div>
 
-<p class="bio">
-Leads interdisciplinary research in AI, cardiovascular medicine,
-and health equity.
+<p class="bio short">
+Leads AI and cardiovascular outcomes research.
+</p>
+
+<p class="bio long">
+Dr. Patel leads interdisciplinary research exploring how AI systems can improve clinical decision making while ensuring equitable implementation.
 </p>
 
 </div>
@@ -398,7 +441,7 @@ and health equity.
 </div>
 
 
-<div class="member">
+<div class="member" onclick="toggleBio(this)">
 
 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e">
 
@@ -407,26 +450,12 @@ and health equity.
 <h3>Jason Kim</h3>
 <div class="subtitle">Graduate Researcher</div>
 
-<p class="bio">
-Supports cardiometabolic outcomes research and project coordination.
+<p class="bio short">
+Supports cardiometabolic outcomes research.
 </p>
 
-</div>
-
-</div>
-
-
-<div class="member">
-
-<img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df">
-
-<div class="member-info">
-
-<h3>Priya Singh</h3>
-<div class="subtitle">Community Outreach</div>
-
-<p class="bio">
-Builds partnerships connecting research with communities.
+<p class="bio long">
+Jason contributes to systematic evidence synthesis and multi-institution research collaborations.
 </p>
 
 </div>
@@ -439,6 +468,10 @@ Builds partnerships connecting research with communities.
 
 
 <script>
+
+function toggleBio(card){
+card.classList.toggle("active")
+}
 
 const observer = new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
