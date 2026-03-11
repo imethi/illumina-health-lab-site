@@ -49,38 +49,66 @@ color:#333;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:25px 100px 35px 100px;
-background:linear-gradient(180deg,#f7f6f8,#f2eef4);
+padding:80px 100px;
+background:linear-gradient(120deg,#f5f2fa,#eef4ff,#f9f2f4);
+background-size:400% 400%;
+animation:heroGradient 15s ease infinite;
+position:relative;
+overflow:hidden;
 }
 
-.hero-text{
-max-width:760px;
+@keyframes heroGradient{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 
 .hero-title{
-font-size:64px;
+font-size:66px;
 font-weight:800;
+line-height:1.1;
 margin-bottom:20px;
 }
 
+.hero-title span{
+background:linear-gradient(90deg,#f36a3e,#6a2d7a);
+-webkit-background-clip:text;
+color:transparent;
+}
+
 .hero p{
-font-size:18px;
+font-size:19px;
 line-height:1.8;
 color:#555;
+max-width:650px;
 }
 
 .hero-logo{
 width:420px;
-animation:float 5s ease-in-out infinite;
+animation:float 6s ease-in-out infinite;
 }
 
 @keyframes float{
 0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
+50%{transform:translateY(-12px)}
 100%{transform:translateY(0)}
 }
 
-/* BUTTONS */
+/* rotating tagline */
+
+.tagline{
+font-size:18px;
+font-weight:600;
+margin-bottom:15px;
+color:#6a2d7a;
+}
+
+.rotate{
+display:inline-block;
+min-width:250px;
+}
+
+/* buttons */
 
 .buttons{
 margin-top:25px;
@@ -111,13 +139,40 @@ border:2px solid #555;
 background:white;
 }
 
-/* SECTIONS */
+/* glow background shapes */
+
+.hero-blur{
+position:absolute;
+border-radius:50%;
+filter:blur(120px);
+opacity:.35;
+}
+
+.hero-blur1{
+width:350px;
+height:350px;
+background:#ff9a66;
+top:-120px;
+left:-120px;
+animation:float 8s ease-in-out infinite;
+}
+
+.hero-blur2{
+width:400px;
+height:400px;
+background:#6a2d7a;
+bottom:-120px;
+right:-100px;
+animation:float 10s ease-in-out infinite;
+}
+
+/* sections */
 
 .section{
 padding:80px 100px;
 }
 
-/* RESEARCH CARDS */
+/* research cards */
 
 .cards{
 display:flex;
@@ -141,7 +196,7 @@ transform:translateY(-10px);
 .card2{background:linear-gradient(135deg,#c43b55,#f09a36);}
 .card3{background:linear-gradient(135deg,#f07b43,#f5c34b);}
 
-/* STATS */
+/* stats */
 
 .stats{
 background:linear-gradient(135deg,#231a3c,#6d275b,#f08c3f);
@@ -152,7 +207,14 @@ justify-content:space-around;
 text-align:center;
 }
 
-/* INSTITUTIONS */
+.stat{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:10px;
+}
+
+/* institutions */
 
 .institution-section{
 padding:70px 100px;
@@ -183,7 +245,6 @@ transition:transform .3s;
 
 .institution img{
 height:40px;
-opacity:.9;
 }
 
 .institution:hover{
@@ -196,7 +257,7 @@ color:#555;
 font-weight:600;
 }
 
-/* TEAM */
+/* team */
 
 .team{
 display:flex;
@@ -251,7 +312,7 @@ display:block;
 display:none;
 }
 
-/* SCROLL FADE */
+/* scroll animation */
 
 .fade{
 opacity:0;
@@ -270,7 +331,6 @@ transform:translateY(0);
 
 <body>
 
-
 <nav class="navbar">
 
 <div class="nav-left">
@@ -278,12 +338,10 @@ transform:translateY(0);
 </div>
 
 <div class="nav-right">
-
 <a href="#">Research</a>
 <a href="#">Team</a>
 <a href="#">Projects</a>
 <a href="#">Contact</a>
-
 </div>
 
 </nav>
@@ -293,7 +351,13 @@ transform:translateY(0);
 
 <div class="hero-text">
 
-<h1 class="hero-title">Welcome to Illumina Health Lab</h1>
+<div class="tagline">
+<span class="rotate" id="rotate"></span>
+</div>
+
+<h1 class="hero-title">
+Welcome to <span>Illumina Health Lab</span>
+</h1>
 
 <p>
 
@@ -317,6 +381,9 @@ We aim to illuminate hidden injustices within health systems, generate evidence 
 </div>
 
 <img class="hero-logo" src="illumina-logo.png">
+
+<div class="hero-blur hero-blur1"></div>
+<div class="hero-blur hero-blur2"></div>
 
 </section>
 
@@ -349,24 +416,52 @@ We aim to illuminate hidden injustices within health systems, generate evidence 
 
 <section class="stats fade">
 
-<div>
+<div class="stat">
+
+<svg viewBox="0 0 24 24" width="40" height="40">
+<path fill="white" d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5z"/>
+<path fill="white" d="M2 22c0-4 4-7 10-7s10 3 10 7"/>
+</svg>
+
 <h1>50+</h1>
 Researchers
+
 </div>
 
-<div>
+
+<div class="stat">
+
+<svg viewBox="0 0 24 24" width="40" height="40">
+<path fill="white" d="M3 13h8V3H3v10zM13 21h8v-8h-8v8z"/>
+</svg>
+
 <h1>20+</h1>
 Active Projects
+
 </div>
 
-<div>
+
+<div class="stat">
+
+<svg viewBox="0 0 24 24" width="40" height="40">
+<path fill="white" d="M12 2L1 7l11 5 9-4.1V17h2V7L12 2z"/>
+</svg>
+
 <h1>10+</h1>
 Partner Institutions
+
 </div>
 
-<div>
+
+<div class="stat">
+
+<svg viewBox="0 0 24 24" width="40" height="40">
+<path fill="white" d="M12 2l10 7h-3v11H5V9H2z"/>
+</svg>
+
 <h1>10+</h1>
 Universities
+
 </div>
 
 </section>
@@ -438,46 +533,6 @@ Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary rese
 
 </div>
 
-
-<div class="member" onclick="toggleBio(this)">
-
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330">
-
-<div class="member-info">
-
-<h3>Dr. Aisha Patel</h3>
-<div class="subtitle">Research Lead</div>
-
-<p class="bio short">Leads AI and cardiovascular outcomes research.</p>
-
-<p class="bio long">
-Dr. Patel leads interdisciplinary research exploring how AI systems can improve clinical decision making while ensuring equitable implementation.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="member" onclick="toggleBio(this)">
-
-<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e">
-
-<div class="member-info">
-
-<h3>Jason Kim</h3>
-<div class="subtitle">Graduate Researcher</div>
-
-<p class="bio short">Supports cardiometabolic outcomes research.</p>
-
-<p class="bio long">
-Jason contributes to systematic evidence synthesis and multi-institution research collaborations.
-</p>
-
-</div>
-
-</div>
-
 </div>
 
 </section>
@@ -485,11 +540,32 @@ Jason contributes to systematic evidence synthesis and multi-institution researc
 
 <script>
 
+/* rotating tagline */
+
+const words=[
+"Medicine",
+"Artificial Intelligence",
+"Health Equity",
+"Global Health"
+]
+
+let i=0
+
+setInterval(()=>{
+document.getElementById("rotate").textContent=words[i]
+i=(i+1)%words.length
+},2000)
+
+
+/* expandable bios */
+
 function toggleBio(card){
 card.classList.toggle("active")
 }
 
-const observer = new IntersectionObserver(entries=>{
+/* scroll animation */
+
+const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
 entry.target.classList.add("show")
@@ -504,4 +580,5 @@ observer.observe(el)
 </script>
 
 </body>
+
 </html>
