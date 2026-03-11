@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Illumina Health Lab</title>
 
 <style>
 
-/* ---------- GLOBAL ---------- */
+/* GLOBAL */
 
 body{
 margin:0;
-font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+font-family:"Segoe UI",system-ui;
 background:#f4f2f6;
 color:#2b2b2b;
 overflow-x:hidden;
-}
-
-h2{
-font-size:34px;
-margin-bottom:20px;
 }
 
 .section{
 padding:80px 110px;
 }
 
-/* ---------- NAVBAR ---------- */
+/* NAVBAR */
 
 .navbar{
 display:flex;
@@ -50,14 +48,9 @@ font-weight:600;
 .nav-right a{
 text-decoration:none;
 color:#333;
-transition:.3s;
 }
 
-.nav-right a:hover{
-color:#6a2d7a;
-}
-
-/* ---------- HERO ---------- */
+/* HERO */
 
 .hero{
 display:flex;
@@ -98,8 +91,6 @@ color:transparent;
 font-size:19px;
 line-height:1.85;
 color:#555;
-max-width:880px;
-margin-top:10px;
 }
 
 .hero-logo{
@@ -113,7 +104,7 @@ animation:float 6s ease-in-out infinite;
 100%{transform:translateY(0)}
 }
 
-/* glowing blobs */
+/* HERO GLOW */
 
 .hero-blur{
 position:absolute;
@@ -128,7 +119,6 @@ height:350px;
 background:#ff9a66;
 top:-120px;
 left:-120px;
-animation:float 8s ease-in-out infinite;
 }
 
 .hero-blur2{
@@ -137,10 +127,9 @@ height:400px;
 background:#6a2d7a;
 bottom:-120px;
 right:-100px;
-animation:float 10s ease-in-out infinite;
 }
 
-/* ---------- TAG CHIP CAROUSEL ---------- */
+/* TAG CHIP CAROUSEL */
 
 .tagline{
 display:flex;
@@ -165,10 +154,9 @@ opacity:1;
 background:linear-gradient(90deg,#f36a3e,#6a2d7a);
 color:white;
 box-shadow:0 6px 14px rgba(0,0,0,0.12);
-transform:translateY(-2px);
 }
 
-/* ---------- BUTTONS ---------- */
+/* BUTTONS */
 
 .buttons{
 margin-top:25px;
@@ -181,7 +169,6 @@ border:none;
 font-weight:700;
 margin-right:12px;
 cursor:pointer;
-transition:.3s;
 }
 
 .btn-primary{
@@ -189,17 +176,12 @@ background:linear-gradient(90deg,#f26c42,#6a2d7a);
 color:white;
 }
 
-.btn-primary:hover{
-transform:translateY(-2px);
-box-shadow:0 8px 20px rgba(0,0,0,0.2);
-}
-
 .btn-outline{
 border:2px solid #555;
 background:white;
 }
 
-/* ---------- RESEARCH CARDS ---------- */
+/* RESEARCH CARDS */
 
 .cards{
 display:flex;
@@ -213,18 +195,13 @@ padding:40px;
 border-radius:20px;
 color:white;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
 }
 
 .card1{background:linear-gradient(135deg,#3d1d70,#c94a55);}
 .card2{background:linear-gradient(135deg,#c43b55,#f09a36);}
 .card3{background:linear-gradient(135deg,#f07b43,#f5c34b);}
 
-/* ---------- STATS ---------- */
+/* STATS */
 
 .stats{
 background:linear-gradient(135deg,#231a3c,#6d275b,#f08c3f);
@@ -235,64 +212,26 @@ justify-content:space-around;
 text-align:center;
 }
 
-.stat{
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:10px;
-}
+/* AFFILIATIONS */
 
-/* ---------- INSTITUTIONS ---------- */
-
-.institution-section{
-padding:80px 110px;
+.affiliations{
 background:white;
 text-align:center;
+padding:80px 0;
 }
 
-.institution-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:50px;
-margin-top:40px;
-align-items:center;
+.affiliations img{
+width:80%;
+max-width:1000px;
+opacity:.95;
 }
 
-.institution{
-display:flex;
-flex-direction:column;
-align-items:center;
-text-align:center;
-transition:.3s;
-}
-
-.institution img{
-height:50px;
-filter:grayscale(100%);
-opacity:.8;
-transition:.3s;
-}
-
-.institution:hover img{
-filter:none;
-opacity:1;
-transform:scale(1.05);
-}
-
-.institution p{
-margin-top:10px;
-font-size:14px;
-font-weight:600;
-color:#555;
-}
-
-/* ---------- TEAM ---------- */
+/* TEAM */
 
 .team{
 display:flex;
 gap:30px;
 margin-top:40px;
-flex-wrap:wrap;
 }
 
 .member{
@@ -302,11 +241,6 @@ overflow:hidden;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
 width:260px;
 cursor:pointer;
-transition:.3s;
-}
-
-.member:hover{
-transform:translateY(-6px);
 }
 
 .member img{
@@ -327,10 +261,6 @@ margin-top:5px;
 
 .bio.long{
 display:none;
-margin-top:10px;
-font-size:14px;
-color:#666;
-line-height:1.6;
 }
 
 .member.active .bio.long{
@@ -341,7 +271,7 @@ display:block;
 display:none;
 }
 
-/* ---------- SCROLL ANIMATION ---------- */
+/* SCROLL ANIMATION */
 
 .fade{
 opacity:0;
@@ -355,10 +285,11 @@ transform:translateY(0);
 }
 
 </style>
+
 </head>
 
-
 <body>
+
 
 <!-- NAVBAR -->
 
@@ -457,26 +388,22 @@ marginalized populations, and design intelligent, ethical tools that strengthen 
 
 <section class="stats fade">
 
-<div class="stat">
-<svg viewBox="0 0 24 24" width="40"><path fill="white" d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5z"/></svg>
+<div>
 <h1>50+</h1>
 Researchers
 </div>
 
-<div class="stat">
-<svg viewBox="0 0 24 24" width="40"><path fill="white" d="M3 13h8V3H3v10z"/></svg>
+<div>
 <h1>20+</h1>
 Active Projects
 </div>
 
-<div class="stat">
-<svg viewBox="0 0 24 24" width="40"><path fill="white" d="M12 2L1 7l11 5 9-4.1V17h2V7z"/></svg>
+<div>
 <h1>10+</h1>
 Partner Institutions
 </div>
 
-<div class="stat">
-<svg viewBox="0 0 24 24" width="40"><path fill="white" d="M12 2l10 7h-3v11H5V9H2z"/></svg>
+<div>
 <h1>10+</h1>
 Universities
 </div>
@@ -484,60 +411,11 @@ Universities
 </section>
 
 
-<!-- INSTITUTIONS -->
+<!-- AFFILIATIONS IMAGE -->
 
-<section class="institution-section">
+<section class="affiliations">
 
-<h2>Institutional Collaborators</h2>
-
-<div class="institution-grid">
-
-<div class="institution">
-<img src="logos/harvard.png">
-<p>Harvard Medical School</p>
-</div>
-
-<div class="institution">
-<img src="logos/utoronto.png">
-<p>University of Toronto</p>
-</div>
-
-<div class="institution">
-<img src="logos/rutgers.png">
-<p>Rutgers University</p>
-</div>
-
-<div class="institution">
-<img src="logos/duke.png">
-<p>Duke University</p>
-</div>
-
-<div class="institution">
-<img src="logos/jhu.png">
-<p>Johns Hopkins University</p>
-</div>
-
-<div class="institution">
-<img src="logos/mcmaster.png">
-<p>McMaster University</p>
-</div>
-
-<div class="institution">
-<img src="logos/stanford.png">
-<p>Stanford Medicine</p>
-</div>
-
-<div class="institution">
-<img src="logos/camh.png">
-<p>Centre for Addiction and Mental Health</p>
-</div>
-
-<div class="institution">
-<img src="logos/mountsinai.png">
-<p>Icahn School of Medicine</p>
-</div>
-
-</div>
+<img src="affiliations.png">
 
 </section>
 
@@ -551,16 +429,23 @@ Universities
 <div class="team">
 
 <div class="member" onclick="toggleBio(this)">
+
 <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+
 <div class="member-info">
+
 <h3>Imeth Illamperuma</h3>
 <div class="subtitle">Founder & Director</div>
+
 <p class="bio short">Founder of Illumina Health Lab.</p>
+
 <p class="bio long">
 Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary research network focused on health equity,
 cardiometabolic disease, and ethical applications of artificial intelligence in healthcare.
 </p>
+
 </div>
+
 </div>
 
 </div>
@@ -569,8 +454,6 @@ cardiometabolic disease, and ethical applications of artificial intelligence in 
 
 
 <script>
-
-/* CHIP ROTATION */
 
 const chips=document.querySelectorAll(".tag-chip")
 let current=0
@@ -581,15 +464,9 @@ current=(current+1)%chips.length
 chips[current].classList.add("active")
 },2000)
 
-
-/* TEAM BIO TOGGLE */
-
 function toggleBio(card){
 card.classList.toggle("active")
 }
-
-
-/* SCROLL ANIMATION */
 
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
@@ -606,4 +483,5 @@ observer.observe(el)
 </script>
 
 </body>
+
 </html>
