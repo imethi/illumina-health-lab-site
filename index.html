@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <title>Illumina Health Lab</title>
@@ -12,6 +13,7 @@ margin:0;
 font-family:"Segoe UI",sans-serif;
 background:#f4f2f6;
 color:#2b2b2b;
+overflow-x:hidden;
 }
 
 /* NAVBAR */
@@ -20,47 +22,82 @@ color:#2b2b2b;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 70px;
+padding:12px 60px;
 background:white;
 box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
 .nav-left img{
-height:48px;
+height:70px;
 }
 
 .nav-right{
 display:flex;
-align-items:center;
 gap:30px;
+font-weight:600;
 }
 
 .nav-right a{
 text-decoration:none;
 color:#333;
-font-weight:600;
-font-size:15px;
 }
 
 /* HERO */
 
 .hero{
 display:flex;
-justify-content:space-between;
 align-items:center;
-padding:80px 100px 70px 100px;
+justify-content:space-between;
+padding:40px 100px 40px 100px;
 background:linear-gradient(180deg,#f7f6f8,#f2eef4);
-gap:60px;
 }
 
 .hero-text{
-max-width:650px;
+max-width:640px;
 }
 
+/* TYPEWRITER TITLE */
+
 .hero h1{
-font-size:58px;
+font-size:64px;
 font-weight:800;
-margin-bottom:25px;
+margin-bottom:10px;
+border-right:3px solid #444;
+width:0;
+overflow:hidden;
+white-space:nowrap;
+animation:typing 2s steps(25,end) forwards, blink .8s infinite;
+}
+
+@keyframes typing{
+to{width:100%}
+}
+
+@keyframes blink{
+50%{border-color:transparent}
+}
+
+/* KEYWORD CAROUSEL */
+
+.carousel{
+font-weight:700;
+color:#6a2d7a;
+height:28px;
+overflow:hidden;
+margin-bottom:20px;
+}
+
+.carousel span{
+display:block;
+animation:rotateWords 8s infinite;
+}
+
+@keyframes rotateWords{
+0%{transform:translateY(0)}
+25%{transform:translateY(-28px)}
+50%{transform:translateY(-56px)}
+75%{transform:translateY(-84px)}
+100%{transform:translateY(0)}
 }
 
 .hero p{
@@ -69,8 +106,23 @@ line-height:1.7;
 color:#555;
 }
 
+.hero-logo{
+width:440px;
+animation:float 5s ease-in-out infinite;
+}
+
+/* FLOATING LOGO */
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
+}
+
+/* BUTTONS */
+
 .buttons{
-margin-top:30px;
+margin-top:25px;
 }
 
 .btn{
@@ -80,6 +132,7 @@ border:none;
 font-weight:700;
 margin-right:12px;
 cursor:pointer;
+transition:all .3s;
 }
 
 .btn-primary{
@@ -87,13 +140,14 @@ background:linear-gradient(90deg,#f26c42,#6a2d7a);
 color:white;
 }
 
+.btn-primary:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
 .btn-outline{
 border:2px solid #555;
 background:white;
-}
-
-.hero-logo{
-width:420px;
 }
 
 /* SECTION */
@@ -102,12 +156,7 @@ width:420px;
 padding:80px 100px;
 }
 
-.section h2{
-font-size:36px;
-margin-bottom:40px;
-}
-
-/* RESEARCH CARDS */
+/* CARDS */
 
 .cards{
 display:flex;
@@ -120,6 +169,11 @@ padding:40px;
 border-radius:20px;
 color:white;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
+transition:transform .3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
 }
 
 .card1{
@@ -134,20 +188,6 @@ background:linear-gradient(135deg,#c43b55,#f09a36);
 background:linear-gradient(135deg,#f07b43,#f5c34b);
 }
 
-.card h3{
-font-size:24px;
-margin-bottom:15px;
-}
-
-.learn{
-margin-top:20px;
-padding:10px 24px;
-border-radius:30px;
-background:#f4b63a;
-border:none;
-font-weight:bold;
-}
-
 /* STATS */
 
 .stats{
@@ -157,11 +197,6 @@ padding:70px;
 display:flex;
 justify-content:space-around;
 text-align:center;
-}
-
-.stats h1{
-font-size:42px;
-margin:0;
 }
 
 /* TEAM */
@@ -178,6 +213,11 @@ border-radius:20px;
 overflow:hidden;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
 flex:1;
+transition:transform .3s;
+}
+
+.member:hover{
+transform:translateY(-10px);
 }
 
 .member img{
@@ -187,17 +227,13 @@ object-fit:cover;
 }
 
 .member-info{
-padding:22px;
-}
-
-.member-info h3{
-margin:0;
+padding:20px;
 }
 
 .subtitle{
 color:#777;
-margin-top:5px;
 font-weight:600;
+margin-top:5px;
 }
 
 .bio{
@@ -207,14 +243,24 @@ color:#666;
 line-height:1.6;
 }
 
+/* FADE IN ON SCROLL */
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
 </style>
 
 </head>
 
 <body>
-
-
-<!-- NAVBAR -->
 
 <nav class="navbar">
 
@@ -234,26 +280,30 @@ line-height:1.6;
 </nav>
 
 
-<!-- HERO -->
-
 <section class="hero">
 
 <div class="hero-text">
 
 <h1>Welcome to Illumina Health Lab</h1>
 
+<div class="carousel">
+
+<span>
+Artificial Intelligence
+Global Health
+Health Equity
+Cardiovascular Science
+</span>
+
+</div>
+
 <p>
 
-Welcome to the central hub for all Illumina Health Lab projects, resources, and ongoing collaborations. 
-Illumina Health Lab advances research at the intersection of health equity, the social determinants of 
-health, medicine, and artificial intelligence.
+Welcome to the central hub for all Illumina Health Lab projects, resources, and collaborations.
 
-A major focus of our work centers on cardiovascular and cardiometabolic health — including how structural 
-inequities shape risk, prevention, diagnosis, and outcomes across conditions like hypertension, diabetes, 
-obesity, and cardiovascular disease.
+Illumina Health Lab advances research at the intersection of health equity, the social determinants of health, medicine, and artificial intelligence. Our work focuses especially on cardiovascular and cardiometabolic health — exploring how structural inequities shape risk, prevention, diagnosis, and outcomes across conditions including hypertension, diabetes, obesity, and cardiovascular disease.
 
-We aim to illuminate hidden injustices within health systems, generate evidence that uplifts marginalized 
-populations, and design intelligent, ethical tools that strengthen equitable care.
+We aim to illuminate hidden injustices within health systems and design ethical, intelligent tools that strengthen equitable care.
 
 </p>
 
@@ -272,53 +322,25 @@ populations, and design intelligent, ethical tools that strengthen equitable car
 </section>
 
 
-<!-- WHAT WE DO -->
-
-<section class="section">
+<section class="section fade">
 
 <h2>What We Do</h2>
 
 <div class="cards">
 
 <div class="card card1">
-
 <h3>Medicine & AI</h3>
-
-<p>
-Developing intelligent clinical systems and ethical AI tools
-to transform medical decision making.
-</p>
-
-<button class="learn">Learn More</button>
-
+<p>Developing ethical AI tools to transform clinical decision making.</p>
 </div>
-
 
 <div class="card card2">
-
 <h3>Global Health & Equity</h3>
-
-<p>
-Addressing structural inequities and strengthening population
-health through interdisciplinary research.
-</p>
-
-<button class="learn">Learn More</button>
-
+<p>Addressing structural inequities in population health.</p>
 </div>
-
 
 <div class="card card3">
-
 <h3>Cardiovascular Research</h3>
-
-<p>
-Advancing cardiometabolic prevention, outcomes science,
-and translational cardiovascular research.
-</p>
-
-<button class="learn">Learn More</button>
-
+<p>Advancing cardiometabolic prevention and outcomes science.</p>
 </div>
 
 </div>
@@ -326,50 +348,34 @@ and translational cardiovascular research.
 </section>
 
 
-<!-- STATS -->
-
-<section class="stats">
+<section class="stats fade">
 
 <div>
-
 <h1>50+</h1>
 Researchers
-
 </div>
 
 <div>
-
 <h1>20+</h1>
 Active Projects
-
 </div>
 
 <div>
-
 <h1>10+</h1>
 Partner Institutions
-
 </div>
 
 <div>
-
 <h1>10+</h1>
 Universities
-
 </div>
 
 </section>
 
 
-<!-- TEAM -->
-
-<section class="section">
+<section class="section fade">
 
 <h2>Our Team</h2>
-
-<p style="color:#666">
-A Diverse Team United by Purpose
-</p>
 
 <div class="team">
 
@@ -383,8 +389,8 @@ A Diverse Team United by Purpose
 <div class="subtitle">Research Lead</div>
 
 <p class="bio">
-Leads interdisciplinary research at the intersection of
-AI, cardiovascular medicine, and health equity.
+Leads interdisciplinary research in AI, cardiovascular medicine,
+and health equity.
 </p>
 
 </div>
@@ -402,8 +408,7 @@ AI, cardiovascular medicine, and health equity.
 <div class="subtitle">Graduate Researcher</div>
 
 <p class="bio">
-Supports cross-institutional research projects and
-data analysis in cardiometabolic health.
+Supports cardiometabolic outcomes research and project coordination.
 </p>
 
 </div>
@@ -421,8 +426,7 @@ data analysis in cardiometabolic health.
 <div class="subtitle">Community Outreach</div>
 
 <p class="bio">
-Builds partnerships that connect research with
-communities and equitable health initiatives.
+Builds partnerships connecting research with communities.
 </p>
 
 </div>
@@ -433,6 +437,22 @@ communities and equitable health initiatives.
 
 </section>
 
+
+<script>
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show")
+}
+})
+})
+
+document.querySelectorAll(".fade").forEach(el=>{
+observer.observe(el)
+})
+
+</script>
 
 </body>
 </html>
