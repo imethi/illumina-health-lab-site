@@ -4,6 +4,7 @@
 <head>
 
 <title>Illumina Health Lab</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -22,7 +23,7 @@ overflow-x:hidden;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:12px 60px;
+padding:12px 70px;
 background:white;
 box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
@@ -48,7 +49,7 @@ color:#333;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:20px 100px 30px 100px;
+padding:25px 100px 35px 100px;
 background:linear-gradient(180deg,#f7f6f8,#f2eef4);
 }
 
@@ -56,26 +57,10 @@ background:linear-gradient(180deg,#f7f6f8,#f2eef4);
 max-width:760px;
 }
 
-/* TYPEWRITER */
-
-.typewriter{
+.hero-title{
 font-size:64px;
 font-weight:800;
-margin-bottom:15px;
-border-right:3px solid #444;
-white-space:nowrap;
-overflow:hidden;
-width:0;
-animation:typing 3s steps(35,end) forwards, blink .8s infinite;
-}
-
-@keyframes typing{
-from{width:0}
-to{width:620px}
-}
-
-@keyframes blink{
-50%{border-color:transparent}
+margin-bottom:20px;
 }
 
 .hero p{
@@ -84,10 +69,8 @@ line-height:1.8;
 color:#555;
 }
 
-/* FLOATING HERO LOGO */
-
 .hero-logo{
-width:430px;
+width:420px;
 animation:float 5s ease-in-out infinite;
 }
 
@@ -110,7 +93,7 @@ border:none;
 font-weight:700;
 margin-right:12px;
 cursor:pointer;
-transition:all .3s;
+transition:.3s;
 }
 
 .btn-primary{
@@ -134,7 +117,7 @@ background:white;
 padding:80px 100px;
 }
 
-/* CARDS */
+/* RESEARCH CARDS */
 
 .cards{
 display:flex;
@@ -169,30 +152,48 @@ justify-content:space-around;
 text-align:center;
 }
 
-/* INSTITUTION CAROUSEL */
+/* INSTITUTIONS */
 
-.logo-carousel{
-overflow:hidden;
+.institution-section{
+padding:70px 100px;
 background:white;
-padding:30px 0;
-margin-top:40px;
+text-align:center;
 }
 
-.logo-track{
+.institution-title{
+font-size:28px;
+margin-bottom:40px;
+font-weight:700;
+}
+
+.institution-carousel{
 display:flex;
-gap:60px;
-animation:scroll 20s linear infinite;
+justify-content:center;
+gap:70px;
+flex-wrap:wrap;
+}
+
+.institution{
+display:flex;
+flex-direction:column;
 align-items:center;
+gap:10px;
+transition:transform .3s;
 }
 
-.logo-track img{
+.institution img{
 height:40px;
-opacity:.8;
+opacity:.9;
 }
 
-@keyframes scroll{
-from{transform:translateX(0)}
-to{transform:translateX(-50%)}
+.institution:hover{
+transform:translateY(-5px);
+}
+
+.institution p{
+font-size:14px;
+color:#555;
+font-weight:600;
 }
 
 /* TEAM */
@@ -211,7 +212,7 @@ overflow:hidden;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
 width:260px;
 cursor:pointer;
-transition:transform .3s;
+transition:.3s;
 }
 
 .member:hover{
@@ -250,7 +251,7 @@ display:block;
 display:none;
 }
 
-/* FADE ANIMATION */
+/* SCROLL FADE */
 
 .fade{
 opacity:0;
@@ -268,6 +269,7 @@ transform:translateY(0);
 </head>
 
 <body>
+
 
 <nav class="navbar">
 
@@ -291,13 +293,15 @@ transform:translateY(0);
 
 <div class="hero-text">
 
-<h1 class="typewriter">Welcome to Illumina Health Lab</h1>
+<h1 class="hero-title">Welcome to Illumina Health Lab</h1>
 
 <p>
 
 Welcome to the central hub for all Illumina Health Lab projects, resources, and collaborations.
 
-Illumina Health Lab advances research at the intersection of health equity, social determinants of health, medicine, and artificial intelligence. Our work focuses especially on cardiovascular and cardiometabolic health — exploring how structural inequities shape risk, prevention, diagnosis, and outcomes across conditions including hypertension, diabetes, obesity, and cardiovascular disease.
+Illumina Health Lab advances research at the intersection of health equity, the social determinants of health, medicine, and artificial intelligence.
+
+Our work focuses especially on cardiovascular and cardiometabolic health — exploring how structural inequities shape risk, prevention, diagnosis, and outcomes across conditions including hypertension, diabetes, obesity, and cardiovascular disease.
 
 We aim to illuminate hidden injustices within health systems, generate evidence that uplifts marginalized populations, and design intelligent, ethical tools that strengthen equitable care.
 
@@ -368,23 +372,41 @@ Universities
 </section>
 
 
-<section class="logo-carousel">
+<section class="institution-section">
 
-<div class="logo-track">
+<h2 class="institution-title">Institutional Collaborators</h2>
 
+<div class="institution-carousel">
+
+<div class="institution">
 <img src="harvard.png">
-<img src="duke.png">
-<img src="rutgers.png">
-<img src="mcmaster.png">
-<img src="stanford.png">
-<img src="camh.png">
+<p>Harvard University</p>
+</div>
 
-<img src="harvard.png">
+<div class="institution">
 <img src="duke.png">
+<p>Duke University</p>
+</div>
+
+<div class="institution">
 <img src="rutgers.png">
+<p>Rutgers University</p>
+</div>
+
+<div class="institution">
 <img src="mcmaster.png">
+<p>McMaster University</p>
+</div>
+
+<div class="institution">
 <img src="stanford.png">
+<p>Stanford University</p>
+</div>
+
+<div class="institution">
 <img src="camh.png">
+<p>Centre for Addiction and Mental Health</p>
+</div>
 
 </div>
 
@@ -406,9 +428,7 @@ Universities
 <h3>Imeth Illamperuma</h3>
 <div class="subtitle">Founder & Director</div>
 
-<p class="bio short">
-Founder of Illumina Health Lab.
-</p>
+<p class="bio short">Founder of Illumina Health Lab.</p>
 
 <p class="bio long">
 Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary research network focused on health equity, cardiometabolic disease, and ethical applications of artificial intelligence in healthcare.
@@ -428,9 +448,7 @@ Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary rese
 <h3>Dr. Aisha Patel</h3>
 <div class="subtitle">Research Lead</div>
 
-<p class="bio short">
-Leads AI and cardiovascular outcomes research.
-</p>
+<p class="bio short">Leads AI and cardiovascular outcomes research.</p>
 
 <p class="bio long">
 Dr. Patel leads interdisciplinary research exploring how AI systems can improve clinical decision making while ensuring equitable implementation.
@@ -450,9 +468,7 @@ Dr. Patel leads interdisciplinary research exploring how AI systems can improve 
 <h3>Jason Kim</h3>
 <div class="subtitle">Graduate Researcher</div>
 
-<p class="bio short">
-Supports cardiometabolic outcomes research.
-</p>
+<p class="bio short">Supports cardiometabolic outcomes research.</p>
 
 <p class="bio long">
 Jason contributes to systematic evidence synthesis and multi-institution research collaborations.
