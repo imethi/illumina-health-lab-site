@@ -9,7 +9,16 @@
 <title>Illumina Health Lab</title>
 
 <style>
-
+#ai-particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+pointer-events:none;
+}
+  
 /* GLOBAL */
 
 body{
@@ -218,6 +227,25 @@ flex-wrap:nowrap;
 width:340px;
 border-radius:26px;
 overflow:hidden;
+
+backdrop-filter:blur(16px);
+background:rgba(255,255,255,0.35);
+border:1px solid rgba(255,255,255,0.3);
+
+box-shadow:
+0 10px 30px rgba(0,0,0,0.12),
+inset 0 0 20px rgba(255,255,255,0.25);
+
+transition:all .35s ease;
+}
+
+.research-card:hover{
+transform:translateY(-10px) scale(1.04);
+
+box-shadow:
+0 30px 60px rgba(0,0,0,0.2),
+0 0 40px rgba(140,80,255,0.25);
+}
 transition:transform .4s ease, box-shadow .4s ease;
 animation:floatCard 6s ease-in-out infinite;
 }
@@ -310,7 +338,8 @@ transform:translateY(0);
 </head>
 
 <body>
-
+<canvas id="ai-particles"></canvas>
+  
 <!-- NAVBAR -->
 
 <nav class="navbar">
@@ -451,6 +480,59 @@ Partner Institutions
 <img src="imethillamperumaheadshot.png">
 
 <div class="member-info">
+<h3>Imeth Illamperuma</h3>
+<div class="subtitle">Founder & Director</div>
+<p>Founder of Illumina Health Lab.</p>
+</div>
+
+</div>
+
+
+<div class="member">
+
+<img src="placeholder.png">
+
+<div class="member-info">
+<h3>Mateen Abbasi</h3>
+<div class="subtitle">Rutgers University</div>
+<p></p>
+</div>
+
+</div>
+
+
+<div class="member">
+
+<img src="placeholder.png">
+
+<div class="member-info">
+<h3>Perisa Ashar</h3>
+<div class="subtitle">Duke University</div>
+<p></p>
+</div>
+
+</div>
+
+
+<div class="member">
+
+<img src="placeholder.png">
+
+<div class="member-info">
+<h3>Abdul Wadud Abbasi</h3>
+<div class="subtitle">Rutgers University</div>
+<p></p>
+</div>
+
+</div>
+
+</div>
+
+<div class="member">
+
+<img src="imethillamperumaheadshot.png">
+
+<div class="member-info">
 
 <h3>Imeth Illamperuma</h3>
 <div class="subtitle">Founder & Director</div>
@@ -493,6 +575,65 @@ entry.target.classList.add("show")
 document.querySelectorAll(".fade").forEach(el=>{
 observer.observe(el)
 })
+
+/* AI PARTICLE BACKGROUND */
+
+const canvas=document.getElementById("ai-particles")
+const ctx=canvas.getContext("2d")
+
+let particles=[]
+let particleCount=80
+
+function resize(){
+canvas.width=window.innerWidth
+canvas.height=window.innerHeight
+}
+
+window.addEventListener("resize",resize)
+resize()
+
+class Particle{
+constructor(){
+this.x=Math.random()*canvas.width
+this.y=Math.random()*canvas.height
+this.vx=(Math.random()-0.5)*0.3
+this.vy=(Math.random()-0.5)*0.3
+this.size=Math.random()*2
+}
+
+move(){
+this.x+=this.vx
+this.y+=this.vy
+}
+
+draw(){
+ctx.beginPath()
+ctx.arc(this.x,this.y,this.size,0,Math.PI*2)
+ctx.fillStyle="rgba(120,90,200,0.35)"
+ctx.fill()
+}
+}
+
+function init(){
+particles=[]
+for(let i=0;i<particleCount;i++){
+particles.push(new Particle())
+}
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+particles.forEach(p=>{
+p.move()
+p.draw()
+})
+
+requestAnimationFrame(animate)
+}
+
+init()
+animate()
 
 </script>
 
