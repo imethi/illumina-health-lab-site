@@ -2,52 +2,32 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Team | Illumina Health Lab</title>
+<title>Publications | Illumina Health Lab</title>
+
+<link rel="stylesheet" href="style.css">
 
 <style>
 
-body{
-font-family:"Segoe UI";
-margin:0;
-background:#f4f2f6;
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:80px 40px;
-}
-
-.team-grid{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-}
-
-.member{
+.paper{
 background:white;
-width:260px;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
+padding:25px;
+border-radius:16px;
+margin-bottom:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
-.member img{
-width:100%;
-aspect-ratio:1/1;
-object-fit:cover;
+.paper a{
+text-decoration:none;
+font-weight:700;
+font-size:18px;
+color:#333;
 }
 
-.member-info{
-padding:18px;
-}
-
-.subtitle{
+.meta{
 color:#777;
+margin-top:6px;
 }
 
 </style>
@@ -56,47 +36,60 @@ color:#777;
 
 <body>
 
+<nav class="navbar">
+
+<div class="nav-left">
+<a href="index.html">
+<img src="Full logo.png">
+</a>
+</div>
+
+<div class="nav-right">
+<a href="about.html">About Us</a>
+<a href="team.html">Team</a>
+<a href="publications.html">Publications</a>
+<a href="get-involved.html">Get Involved</a>
+</div>
+
+</nav>
+
+
+<section class="section">
+
 <div class="container">
 
-<h1>Our Team</h1>
+<h2 class="section-title">Publications</h2>
 
-<div class="team-grid">
 
-<div class="member">
-<img src="imethillamperumaheadshot.png">
-<div class="member-info">
-<h3>Imeth Illamperuma</h3>
-<div class="subtitle">Founder & Director</div>
-</div>
-</div>
+<div class="paper">
 
-<div class="member">
-<img src="https://via.placeholder.com/400/000000/000000">
-<div class="member-info">
-<h3>Mateen Abbasi</h3>
-<div class="subtitle">Rutgers University</div>
-</div>
-</div>
+<a href="https://www.tandfonline.com/doi/full/10.1080/0142159X.2025.2596091" target="_blank">
+Medical students’ experiences using artificial intelligence tools in clinical education
+</a>
 
-<div class="member">
-<img src="https://via.placeholder.com/400/000000/000000">
-<div class="member-info">
-<h3>Perisa Ashar</h3>
-<div class="subtitle">Duke University</div>
-</div>
-</div>
-
-<div class="member">
-<img src="https://via.placeholder.com/400/000000/000000">
-<div class="member-info">
-<h3>Abdul Wadud Abbasi</h3>
-<div class="subtitle">Rutgers University</div>
-</div>
+<div class="meta">
+Medical Teacher • 2025
 </div>
 
 </div>
 
+
+<div class="paper">
+
+<a href="https://journals.sagepub.com/doi/full/10.1177/26324636251408203" target="_blank">
+Equity considerations in digital health implementation and access
+</a>
+
+<div class="meta">
+Digital Health • 2025
 </div>
+
+</div>
+
+
+</div>
+
+</section>
 
 </body>
 </html>
