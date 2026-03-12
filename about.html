@@ -8,16 +8,17 @@
 
 <title>About | Illumina Health Lab</title>
 
-<style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 
-/* GLOBAL */
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<style>
 
 body{
 margin:0;
-font-family:"Segoe UI",system-ui;
-background:#f4f2f6;
-color:#2b2b2b;
-overflow-x:hidden;
+font-family:Inter, sans-serif;
+background:linear-gradient(180deg,#f4f6fb,#e6e8f2);
+color:#222;
 }
 
 /* NAVBAR */
@@ -26,66 +27,85 @@ overflow-x:hidden;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:12px 70px;
+padding:18px 40px;
 background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
+box-shadow:0 2px 8px rgba(0,0,0,0.06);
+}
+
+.nav-left{
+display:flex;
+align-items:center;
+gap:14px;
 }
 
 .nav-left img{
-height:70px;
-}
-
-.nav-right{
-display:flex;
-gap:30px;
-font-weight:600;
+height:55px;
 }
 
 .nav-right a{
+margin-left:28px;
 text-decoration:none;
+font-weight:500;
 color:#333;
 }
 
-/* CONTAINER */
-
-.container{
-max-width:1000px;
-margin:auto;
-padding:90px 40px;
+.nav-right a:hover{
+color:#8b2ce2;
 }
 
-/* SECTION BACKGROUND */
+/* SECTION */
 
 .section{
-background:
-radial-gradient(circle at 20% 30%, rgba(255,160,120,0.12), transparent 40%),
-radial-gradient(circle at 80% 70%, rgba(120,90,200,0.12), transparent 40%),
-linear-gradient(180deg,#f6f3fa,#eef2fb);
-min-height:100vh;
+padding:80px 20px;
 }
 
-/* TITLE */
+.container{
+max-width:1100px;
+margin:auto;
+text-align:center;
+}
 
 .section-title{
-font-size:44px;
-font-weight:800;
+font-size:40px;
 margin-bottom:30px;
-
-background:linear-gradient(90deg,#f36a3e,#c94a55,#6a2d7a);
--webkit-background-clip:text;
-color:transparent;
+font-weight:700;
 }
 
 /* TEXT */
 
 .about-text{
 font-size:18px;
-line-height:1.75;
-color:#555;
+line-height:1.7;
+max-width:850px;
+margin:auto;
+color:#444;
 }
 
 .about-text p{
-margin-bottom:24px;
+margin-bottom:20px;
+}
+
+/* MAP */
+
+#research-map{
+height:520px;
+margin-top:40px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* INSTITUTION PANEL */
+
+.institutions{
+margin-top:60px;
+background:white;
+border-radius:18px;
+padding:40px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.institutions img{
+max-width:100%;
 }
 
 </style>
@@ -96,22 +116,25 @@ margin-bottom:24px;
 
 <!-- NAVBAR -->
 
-<nav class="navbar">
+<div class="navbar">
 
 <div class="nav-left">
-<a href="index.html">
-<img src="Full logo.png">
-</a>
+
+<img src="illumina_logo.png">
+
 </div>
 
 <div class="nav-right">
+
+<a href="index.html">Home</a>
 <a href="about.html">About Us</a>
 <a href="team.html">Team</a>
 <a href="publications.html">Publications</a>
-<a href="get-involved.html">Get Involved</a>
+<a href="getinvolved.html">Get Involved</a>
+
 </div>
 
-</nav>
+</div>
 
 
 <!-- ABOUT SECTION -->
@@ -125,26 +148,83 @@ margin-bottom:24px;
 <div class="about-text">
 
 <p>
-Illumina Health Lab is an interdisciplinary research collective advancing work at the intersection of medicine, artificial intelligence, and health equity. Our mission is to investigate how structural and social determinants shape health outcomes and to develop intelligent, ethical approaches that strengthen healthcare systems worldwide.
+Illumina Health Lab is an interdisciplinary research collective advancing work at the intersection of medicine, artificial intelligence, and global health equity. Our mission is to investigate how structural and social determinants shape health outcomes and to develop intelligent, ethical approaches that strengthen healthcare systems worldwide.
 </p>
 
 <p>
-With researchers based across Canada, the United States, and the United Kingdom, the lab brings together students, clinicians, and emerging scholars committed to addressing some of the most pressing challenges in global health.
+The lab brings together students, clinicians, and emerging scholars from institutions across Canada, the United States, the United Kingdom, and Europe. Our work focuses particularly on cardiovascular and cardiometabolic disease—including hypertension, diabetes, and obesity—and how inequities in policy, access, and environment influence prevention, diagnosis, and outcomes.
 </p>
 
 <p>
-A major focus of our work centers on cardiovascular and cardiometabolic disease—including hypertension, diabetes, obesity, and cardiovascular disease—and how inequities in policy, access, and environment influence prevention, diagnosis, and outcomes.
-</p>
-
-<p>
-Through collaborative research, mentorship, and innovation, Illumina Health Lab aims to illuminate hidden injustices within health systems, generate evidence that uplifts marginalized populations, and design solutions that advance more equitable and effective healthcare worldwide.
+Through collaborative research, mentorship, and innovation, Illumina Health Lab aims to illuminate hidden injustices within health systems and design solutions that advance more equitable healthcare globally.
 </p>
 
 </div>
+
+
+<!-- MAP -->
+
+<h2 style="margin-top:70px;">Our Global Research Network</h2>
+
+<div id="research-map"></div>
+
+
+<!-- INSTITUTION LOGOS -->
+
+<div class="institutions">
+
+<h3 style="margin-bottom:20px;">Affiliated Institutions</h3>
+
+<img src="affiliations.png">
+
+</div>
+
 
 </div>
 
 </section>
 
+
+<!-- MAP SCRIPT -->
+
+<script>
+
+var map = L.map('research-map').setView([30,-10],2);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+attribution:'© OpenStreetMap'
+}).addTo(map);
+
+
+var institutions=[
+
+["Harvard Medical School",42.335,-71.104],
+["University of Toronto",43.662,-79.395],
+["Rutgers University",40.500,-74.447],
+["Stanford Medicine",37.433,-122.175],
+["Mass General Brigham",42.362,-71.068],
+["Duke University",36.001,-78.938],
+["Johns Hopkins University",39.329,-76.620],
+["McMaster University",43.261,-79.919],
+["CAMH",43.643,-79.393],
+["Icahn School of Medicine at Mount Sinai",40.790,-73.953],
+
+["London School of Hygiene & Tropical Medicine",51.525,-0.126],
+["Queen’s University Belfast",54.584,-5.934]
+
+];
+
+for(var i=0;i<institutions.length;i++){
+
+L.marker([institutions[i][1],institutions[i][2]])
+.addTo(map)
+.bindPopup(institutions[i][0]);
+
+}
+
+</script>
+
+
 </body>
+
 </html>
