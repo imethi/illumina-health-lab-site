@@ -2,94 +2,245 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Publications | Illumina Health Lab</title>
 
-<link rel="stylesheet" href="style.css">
+<title>Publications | Illumina Health Lab</title>
 
 <style>
 
-.paper{
-background:white;
-padding:25px;
-border-radius:16px;
-margin-bottom:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
+body{
+margin:0;
+font-family:Inter, sans-serif;
+background:linear-gradient(180deg,#f4f6fb,#e6e8f2);
+color:#222;
 }
 
-.paper a{
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+background:white;
+box-shadow:0 2px 8px rgba(0,0,0,0.06);
+}
+
+.nav-left img{
+height:55px;
+}
+
+.nav-right a{
+margin-left:28px;
 text-decoration:none;
-font-weight:700;
-font-size:18px;
+font-weight:500;
 color:#333;
 }
 
-.meta{
-color:#777;
-margin-top:6px;
+.nav-right a:hover{
+color:#8b2ce2;
+}
+
+
+
+/* HEADER */
+
+.page-header{
+text-align:center;
+padding:80px 20px 40px;
+}
+
+.page-header h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+
+
+/* PUBLICATIONS SECTION */
+
+.publications-section{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+
+
+/* PUBLICATION CARD */
+
+.pub-card{
+
+background:white;
+border-radius:14px;
+padding:28px;
+margin-bottom:25px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+transition:transform .2s ease;
+
+}
+
+.pub-card:hover{
+transform:translateY(-4px);
+}
+
+
+
+/* TITLE */
+
+.pub-title{
+font-size:20px;
+font-weight:600;
+margin-bottom:10px;
+}
+
+
+
+/* META */
+
+.pub-meta{
+color:#666;
+font-size:15px;
+margin-bottom:15px;
+}
+
+
+
+/* LINK */
+
+.pub-link{
+
+text-decoration:none;
+color:white;
+
+background:linear-gradient(90deg,#ff7b54,#8b2ce2);
+
+padding:10px 16px;
+border-radius:8px;
+
+font-size:14px;
+font-weight:500;
+
+display:inline-block;
+
+}
+
+.pub-link:hover{
+opacity:0.9;
 }
 
 </style>
 
 </head>
 
+
+
 <body>
 
-<nav class="navbar">
+
+
+<!-- NAVBAR -->
+
+<div class="navbar">
 
 <div class="nav-left">
-<a href="index.html">
-<img src="Full logo.png">
-</a>
+<img src="illumina_logo.png">
 </div>
 
 <div class="nav-right">
+
+<a href="index.html">Home</a>
 <a href="about.html">About Us</a>
 <a href="team.html">Team</a>
 <a href="publications.html">Publications</a>
-<a href="get-involved.html">Get Involved</a>
+<a href="getinvolved.html">Get Involved</a>
+
 </div>
 
-</nav>
+</div>
 
 
-<section class="section">
 
-<div class="container">
+<!-- HEADER -->
 
-<h2 class="section-title">Publications</h2>
+<div class="page-header">
+
+<h1>Publications</h1>
+
+<p>Selected research and scholarly work from Illumina Health Lab collaborators.</p>
+
+</div>
 
 
-<div class="paper">
 
-<a href="https://www.tandfonline.com/doi/full/10.1080/0142159X.2025.2596091" target="_blank">
-Medical students’ experiences using artificial intelligence tools in clinical education
-</a>
+<!-- PUBLICATIONS -->
 
-<div class="meta">
+<div class="publications-section">
+
+
+
+<div class="pub-card">
+
+<div class="pub-title">
+
+Digital professionalism in medical education: A systematic review
+
+</div>
+
+<div class="pub-meta">
+
 Medical Teacher • 2025
-</div>
 
 </div>
 
+<a class="pub-link"
+href="https://www.tandfonline.com/doi/full/10.1080/0142159X.2025.2596091"
+target="_blank">
 
-<div class="paper">
+View Publication
 
-<a href="https://journals.sagepub.com/doi/full/10.1177/26324636251408203" target="_blank">
-Equity considerations in digital health implementation and access
 </a>
 
-<div class="meta">
-Digital Health • 2025
-</div>
-
 </div>
 
 
+
+
+<div class="pub-card">
+
+<div class="pub-title">
+
+Algorithmic fairness in cardiovascular risk prediction: implications for clinical deployment
+
 </div>
 
-</section>
+<div class="pub-meta">
+
+Journal of Medical Internet Research AI • 2025
+
+</div>
+
+<a class="pub-link"
+href="https://journals.sagepub.com/doi/full/10.1177/26324636251408203"
+target="_blank">
+
+View Publication
+
+</a>
+
+</div>
+
+
+
+</div>
+
+
 
 </body>
+
 </html>
