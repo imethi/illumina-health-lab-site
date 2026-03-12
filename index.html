@@ -20,6 +20,10 @@ color:#2b2b2b;
 overflow-x:hidden;
 }
 
+.section{
+padding:60px 110px;
+}
+
 /* NAVBAR */
 
 .navbar{
@@ -52,7 +56,7 @@ color:#333;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:110px;
+padding:70px 110px 40px 110px;
 background:linear-gradient(120deg,#f5f2fa,#eef4ff,#f9f2f4);
 background-size:400% 400%;
 animation:heroGradient 16s ease infinite;
@@ -71,10 +75,10 @@ max-width:900px;
 }
 
 .hero-title{
-font-size:68px;
+font-size:66px;
 font-weight:800;
 line-height:1.05;
-margin-bottom:18px;
+margin-bottom:12px;
 }
 
 .lab-title{
@@ -85,19 +89,19 @@ color:transparent;
 }
 
 .hero p{
-font-size:19px;
-line-height:1.85;
+font-size:18px;
+line-height:1.7;
 color:#555;
 }
 
 .hero-logo{
-width:420px;
+width:400px;
 animation:float 6s ease-in-out infinite;
 }
 
 @keyframes float{
 0%{transform:translateY(0)}
-50%{transform:translateY(-12px)}
+50%{transform:translateY(-10px)}
 100%{transform:translateY(0)}
 }
 
@@ -105,16 +109,16 @@ animation:float 6s ease-in-out infinite;
 
 .tagline{
 display:flex;
-gap:12px;
-margin-bottom:20px;
+gap:10px;
+margin-bottom:15px;
 flex-wrap:wrap;
 }
 
 .tag-chip{
-padding:8px 16px;
+padding:6px 14px;
 border-radius:30px;
 font-weight:600;
-font-size:15px;
+font-size:14px;
 background:linear-gradient(90deg,#ffe9e2,#f1e8ff);
 color:#6a2d7a;
 opacity:.4;
@@ -130,15 +134,15 @@ color:white;
 /* BUTTONS */
 
 .buttons{
-margin-top:25px;
+margin-top:18px;
 }
 
 .btn{
-padding:14px 28px;
+padding:12px 24px;
 border-radius:40px;
 border:none;
 font-weight:700;
-margin-right:12px;
+margin-right:10px;
 cursor:pointer;
 }
 
@@ -152,11 +156,33 @@ border:2px solid #555;
 background:white;
 }
 
-/* WHAT WE DO SECTION */
+/* STATS */
+
+.stats{
+background:linear-gradient(135deg,#231a3c,#6d275b,#f08c3f);
+color:white;
+padding:40px 60px;
+display:flex;
+justify-content:space-around;
+text-align:center;
+
+/* overlap hero */
+margin-top:-40px;
+border-radius:20px;
+width:85%;
+margin-left:auto;
+margin-right:auto;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.stats h1{
+font-size:38px;
+margin-bottom:4px;
+}
+
+/* WHAT WE DO */
 
 .section{
-padding:140px 110px;
-
 background:
 radial-gradient(circle at 20% 30%, rgba(255,160,120,0.12), transparent 40%),
 radial-gradient(circle at 80% 70%, rgba(120,90,200,0.12), transparent 40%),
@@ -164,9 +190,9 @@ linear-gradient(180deg,#f6f3fa,#eef2fb);
 }
 
 .section-title{
-font-size:42px;
+font-size:38px;
 font-weight:700;
-margin-bottom:80px;
+margin-bottom:35px;
 text-align:center;
 
 background:linear-gradient(90deg,#f36a3e,#c94a55,#6a2d7a);
@@ -179,14 +205,14 @@ color:transparent;
 .research-grid{
 display:flex;
 justify-content:center;
-gap:45px;
+gap:40px;
 flex-wrap:wrap;
 }
 
 /* CARDS */
 
 .research-card{
-width:380px;
+width:360px;
 border-radius:28px;
 overflow:hidden;
 cursor:pointer;
@@ -201,57 +227,31 @@ display:block;
 }
 
 .research-card:hover{
-transform:translateY(-14px) scale(1.05);
+transform:translateY(-12px) scale(1.05);
 box-shadow:0 25px 50px rgba(0,0,0,0.25);
-}
-
-.research-card::before{
-content:"";
-position:absolute;
-inset:-40px;
-background:radial-gradient(circle, rgba(255,180,120,0.25), transparent 70%);
-z-index:-1;
-filter:blur(30px);
-opacity:.5;
 }
 
 @keyframes floatCard{
 0%{transform:translateY(0px)}
-50%{transform:translateY(-10px)}
+50%{transform:translateY(-8px)}
 100%{transform:translateY(0px)}
 }
 
 .research-card:nth-child(2){animation-delay:1s;}
 .research-card:nth-child(3){animation-delay:2s;}
 
-/* STATS */
-
-.stats{
-background:linear-gradient(135deg,#231a3c,#6d275b,#f08c3f);
-color:white;
-padding:80px;
-display:flex;
-justify-content:space-around;
-text-align:center;
-}
-
-.stats h1{
-font-size:42px;
-margin-bottom:6px;
-}
-
 /* AFFILIATIONS */
 
 .affiliations{
-padding:90px 0;
+padding:35px 0 25px 0;
 text-align:center;
 background:linear-gradient(180deg,#f6f4f8,#eef1f7);
 }
 
 .affiliation-title{
-font-size:34px;
+font-size:30px;
 font-weight:700;
-margin-bottom:40px;
+margin-bottom:20px;
 }
 
 .affiliation-container img{
@@ -265,7 +265,8 @@ object-fit:contain;
 .team{
 display:flex;
 gap:30px;
-margin-top:40px;
+margin-top:15px;
+justify-content:center;
 }
 
 .member{
@@ -284,13 +285,13 @@ object-fit:cover;
 }
 
 .member-info{
-padding:20px;
+padding:18px;
 }
 
 .subtitle{
 color:#777;
 font-weight:600;
-margin-top:5px;
+margin-top:4px;
 }
 
 .bio.long{
@@ -310,7 +311,7 @@ display:none;
 .fade{
 opacity:0;
 transform:translateY(40px);
-transition:all .8s;
+transition:all .7s;
 }
 
 .fade.show{
@@ -341,6 +342,7 @@ transform:translateY(0);
 
 </nav>
 
+
 <!-- HERO -->
 
 <section class="hero">
@@ -359,11 +361,7 @@ Welcome to <span class="lab-title">Illumina Health Lab</span>
 </h1>
 
 <p>
-
-Illumina Health Lab is an interdisciplinary research collective advancing work at the intersection of medicine, artificial intelligence, and health equity. Our mission is to investigate how structural and social determinants shape health outcomes and to develop intelligent, ethical approaches that strengthen healthcare systems.
-With researchers based across Canada, the United States, and the United Kingdom, the lab brings together students, clinicians, and emerging scholars committed to addressing some of the most pressing challenges in global health. A major focus of our work centers on cardiovascular and cardiometabolic disease—including hypertension, diabetes, obesity, and cardiovascular disease—and how inequities in policy, access, and environment influence prevention, diagnosis, and outcomes.
-Through collaborative research, mentorship, and innovation, Illumina Health Lab aims to illuminate hidden injustices within health systems, generate evidence that uplifts marginalized populations, and design solutions that advance more equitable and effective healthcare worldwide.
-
+Welcome to the central hub for all Illumina Health Lab projects, resources, and collaborations. Illumina Health Lab advances research at the intersection of health equity, the social determinants of health, medicine, and artificial intelligence.
 </p>
 
 <div class="buttons">
@@ -376,6 +374,34 @@ Through collaborative research, mentorship, and innovation, Illumina Health Lab 
 <img class="hero-logo" src="illumina-logo.png">
 
 </section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div>
+<h1>30+</h1>
+Researchers
+</div>
+
+<div>
+<h1>4</h1>
+Countries
+</div>
+
+<div>
+<h1>20+</h1>
+Active Projects
+</div>
+
+<div>
+<h1>10+</h1>
+Partner Institutions
+</div>
+
+</section>
+
 
 <!-- WHAT WE DO -->
 
@@ -401,33 +427,8 @@ Through collaborative research, mentorship, and innovation, Illumina Health Lab 
 
 </section>
 
-<!-- STATS -->
 
-<section class="stats fade">
-
-<div>
-<h1>50+</h1>
-Researchers
-</div>
-
-<div>
-<h1>20+</h1>
-Active Projects
-</div>
-
-<div>
-<h1>10+</h1>
-Partner Institutions
-</div>
-
-<div>
-<h1>10+</h1>
-Universities
-</div>
-
-</section>
-
-<!-- AFFILIATIONS -->
+<!-- AFFILIATED INSTITUTIONS -->
 
 <section class="affiliations">
 
@@ -439,6 +440,7 @@ Universities
 
 </section>
 
+
 <!-- TEAM -->
 
 <section class="section fade">
@@ -449,7 +451,7 @@ Universities
 
 <div class="member" onclick="toggleBio(this)">
 
-<img src="imethillamperuma headshot.png">
+<img src="imeth_headshot.png">
 
 <div class="member-info">
 
@@ -459,8 +461,7 @@ Universities
 <p class="bio short">Founder of Illumina Health Lab.</p>
 
 <p class="bio long">
-Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary research network focused on
-health equity, cardiometabolic disease, and ethical AI applications in healthcare.
+Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary research network focused on health equity, cardiometabolic disease, and ethical AI applications in healthcare.
 </p>
 
 </div>
@@ -470,6 +471,7 @@ health equity, cardiometabolic disease, and ethical AI applications in healthcar
 </div>
 
 </section>
+
 
 <script>
 
