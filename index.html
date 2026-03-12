@@ -20,16 +20,16 @@ color:#2b2b2b;
 overflow-x:hidden;
 }
 
-/* BACKGROUND GLOW BLOBS */
+/* BACKGROUND GLOWS */
 
 .bg-glow{
 position:fixed;
-width:650px;
-height:650px;
+width:700px;
+height:700px;
 filter:blur(140px);
 opacity:.35;
-z-index:-1;
-animation:glowMove 18s ease-in-out infinite alternate;
+z-index:-2;
+animation:glowMove 20s ease-in-out infinite alternate;
 }
 
 .glow1{
@@ -42,23 +42,19 @@ left:-200px;
 background:radial-gradient(circle,#7c3aed,#3b82f6);
 bottom:-200px;
 right:-200px;
-animation-delay:5s;
+animation-delay:6s;
 }
 
 .glow3{
 background:radial-gradient(circle,#ffb347,#ff5f6d);
-top:40%;
+top:50%;
 left:40%;
-animation-delay:9s;
+animation-delay:10s;
 }
 
 @keyframes glowMove{
-0%{
-transform:translateY(0) translateX(0) scale(1);
-}
-100%{
-transform:translateY(-60px) translateX(40px) scale(1.2);
-}
+0%{transform:translateY(0) translateX(0)}
+100%{transform:translateY(-80px) translateX(60px)}
 }
 
 /* NAVBAR */
@@ -93,11 +89,17 @@ color:#333;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:70px 110px 40px 110px;
+padding:70px 110px 60px 110px;
+position:relative;
 
-background:linear-gradient(120deg,#f5f2fa,#eef4ff,#f9f2f4);
+background:
+radial-gradient(circle at 20% 20%, rgba(255,120,90,0.25), transparent 40%),
+radial-gradient(circle at 80% 30%, rgba(120,90,255,0.25), transparent 40%),
+radial-gradient(circle at 60% 80%, rgba(255,200,100,0.25), transparent 40%),
+linear-gradient(120deg,#f6f4fb,#eef3ff,#f9f1f5);
+
 background-size:400% 400%;
-animation:heroGradient 16s ease infinite;
+animation:heroGradient 18s ease infinite;
 }
 
 @keyframes heroGradient{
@@ -193,38 +195,38 @@ border:2px solid #555;
 background:white;
 }
 
-/* STATS */
+/* STATS BAR FULL WIDTH */
 
 .stats{
-background:linear-gradient(135deg,#231a3c,#6d275b,#f08c3f);
-color:white;
-padding:40px 60px;
+width:100%;
+background:linear-gradient(135deg,#2a1645,#6d275b,#f08c3f);
+padding:45px 0;
 display:flex;
-justify-content:space-around;
-text-align:center;
-
-margin-top:-40px;
-border-radius:20px;
-width:85%;
-margin-left:auto;
-margin-right:auto;
-box-shadow:0 10px 30px rgba(0,0,0,0.25);
+justify-content:center;
 }
 
-.stats h1{
+.stats-inner{
+width:1100px;
+display:flex;
+justify-content:space-between;
+color:white;
+text-align:center;
+}
+
+.stats-inner h1{
 font-size:38px;
 margin-bottom:4px;
 }
 
-/* WHAT WE DO */
+/* SECTIONS */
 
 .section{
-padding:60px 110px;
+padding:80px 110px;
 
 background:
-radial-gradient(circle at 20% 30%, rgba(255,160,120,0.12), transparent 40%),
-radial-gradient(circle at 80% 70%, rgba(120,90,200,0.12), transparent 40%),
-linear-gradient(180deg,#f6f3fa,#eef2fb);
+radial-gradient(circle at 25% 40%, rgba(255,140,100,0.12), transparent 45%),
+radial-gradient(circle at 75% 60%, rgba(120,90,200,0.12), transparent 45%),
+linear-gradient(180deg,#f6f4fa,#eef2fb);
 }
 
 .section-title{
@@ -247,7 +249,7 @@ gap:40px;
 flex-wrap:wrap;
 }
 
-/* RESEARCH CARDS */
+/* CARDS */
 
 .research-card{
 width:360px;
@@ -297,7 +299,7 @@ box-shadow:0 25px 50px rgba(0,0,0,0.25);
 /* AFFILIATIONS */
 
 .affiliations{
-padding:35px 0 25px 0;
+padding:40px 0 25px 0;
 text-align:center;
 background:linear-gradient(180deg,#f6f4f8,#eef1f7);
 }
@@ -360,7 +362,7 @@ display:block;
 display:none;
 }
 
-/* SCROLL ANIMATION */
+/* SCROLL FADE */
 
 .fade{
 opacity:0;
@@ -441,6 +443,8 @@ Through collaborative research, mentorship, and innovation, Illumina Health Lab 
 
 <section class="stats">
 
+<div class="stats-inner">
+
 <div>
 <h1>30+</h1>
 Researchers
@@ -459,6 +463,8 @@ Active Projects
 <div>
 <h1>10+</h1>
 Partner Institutions
+</div>
+
 </div>
 
 </section>
@@ -522,7 +528,7 @@ Partner Institutions
 <p class="bio short">Founder of Illumina Health Lab.</p>
 
 <p class="bio long">
-Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary research network focused on health equity, cardiometabolic disease, and ethical AI applications in healthcare.
+Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary research network focused on health equity and cardiometabolic disease.
 </p>
 
 </div>
