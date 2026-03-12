@@ -94,9 +94,47 @@ line-height:1.7;
 color:#555;
 }
 
+/* LOGO GLOW */
+
+.logo-glow-container{
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.logo-glow{
+position:absolute;
+width:520px;
+height:520px;
+
+background:
+radial-gradient(circle,
+rgba(255,140,80,0.45) 0%,
+rgba(200,70,120,0.35) 40%,
+rgba(120,60,200,0.25) 70%,
+transparent 80%);
+
+filter:blur(90px);
+animation:glowPulse 8s ease-in-out infinite;
+z-index:0;
+}
+
 .hero-logo{
-width:400px;
+width:420px;
+position:relative;
+z-index:1;
 animation:float 6s ease-in-out infinite;
+}
+
+@keyframes glowPulse{
+
+0%{transform:scale(1);opacity:0.8;}
+
+50%{transform:scale(1.15);opacity:1;}
+
+100%{transform:scale(1);opacity:0.8;}
+
 }
 
 @keyframes float{
@@ -166,7 +204,6 @@ display:flex;
 justify-content:space-around;
 text-align:center;
 
-/* overlap hero */
 margin-top:-40px;
 border-radius:20px;
 width:85%;
@@ -218,7 +255,6 @@ overflow:hidden;
 cursor:pointer;
 transition:transform .4s ease, box-shadow .4s ease;
 animation:floatCard 6s ease-in-out infinite;
-position:relative;
 }
 
 .research-card img{
@@ -236,9 +272,6 @@ box-shadow:0 25px 50px rgba(0,0,0,0.25);
 50%{transform:translateY(-8px)}
 100%{transform:translateY(0px)}
 }
-
-.research-card:nth-child(2){animation-delay:1s;}
-.research-card:nth-child(3){animation-delay:2s;}
 
 /* AFFILIATIONS */
 
@@ -306,19 +339,6 @@ display:block;
 display:none;
 }
 
-/* SCROLL ANIMATION */
-
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition:all .7s;
-}
-
-.fade.show{
-opacity:1;
-transform:translateY(0);
-}
-
 </style>
 
 </head>
@@ -361,9 +381,8 @@ Welcome to <span class="lab-title">Illumina Health Lab</span>
 </h1>
 
 <p>
-Illumina Health Lab is an interdisciplinary research collective advancing work at the intersection of medicine, artificial intelligence, and health equity. Our mission is to investigate how structural and social determinants shape health outcomes and to develop intelligent, ethical approaches that strengthen healthcare systems.
-With researchers based across Canada, the United States, and the United Kingdom, the lab brings together students, clinicians, and emerging scholars committed to addressing some of the most pressing challenges in global health. A major focus of our work centers on cardiovascular and cardiometabolic disease—including hypertension, diabetes, obesity, and cardiovascular disease—and how inequities in policy, access, and environment influence prevention, diagnosis, and outcomes.
-Through collaborative research, mentorship, and innovation, Illumina Health Lab aims to illuminate hidden injustices within health systems, generate evidence that uplifts marginalized populations, and design solutions that advance more equitable and effective healthcare worldwide.</p>
+Welcome to the central hub for all Illumina Health Lab projects, resources, and collaborations. Illumina Health Lab advances research at the intersection of health equity, the social determinants of health, medicine, and artificial intelligence.
+</p>
 
 <div class="buttons">
 <button class="btn btn-primary">OUR MISSION</button>
@@ -372,142 +391,15 @@ Through collaborative research, mentorship, and innovation, Illumina Health Lab 
 
 </div>
 
+<div class="logo-glow-container">
+
+<div class="logo-glow"></div>
+
 <img class="hero-logo" src="illumina-logo.png">
 
-</section>
-
-
-<!-- STATS -->
-
-<section class="stats">
-
-<div>
-<h1>30+</h1>
-Researchers
-</div>
-
-<div>
-<h1>4</h1>
-Countries
-</div>
-
-<div>
-<h1>20+</h1>
-Active Projects
-</div>
-
-<div>
-<h1>10+</h1>
-Partner Institutions
 </div>
 
 </section>
-
-
-<!-- WHAT WE DO -->
-
-<section class="section fade">
-
-<h2 class="section-title">What We Do</h2>
-
-<div class="research-grid">
-
-<div class="research-card">
-<img src="7.png">
-</div>
-
-<div class="research-card">
-<img src="8.png">
-</div>
-
-<div class="research-card">
-<img src="9.png">
-</div>
-
-</div>
-
-</section>
-
-
-<!-- AFFILIATED INSTITUTIONS -->
-
-<section class="affiliations">
-
-<h2 class="affiliation-title">Affiliated Institutions</h2>
-
-<div class="affiliation-container">
-<img src="affiliations.png">
-</div>
-
-</section>
-
-
-<!-- TEAM -->
-
-<section class="section fade">
-
-<h2 class="section-title">Our Team</h2>
-
-<div class="team">
-
-<div class="member" onclick="toggleBio(this)">
-
-<img src="imethillamperumaheadshot.png">
-
-<div class="member-info">
-
-<h3>Imeth Illamperuma</h3>
-<div class="subtitle">Founder & Director</div>
-
-<p class="bio short">Founder of Illumina Health Lab.</p>
-
-<p class="bio long">
-Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary research network focused on health equity, cardiometabolic disease, and ethical AI applications in healthcare.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<script>
-
-/* TAG ROTATION */
-
-const chips=document.querySelectorAll(".tag-chip")
-let current=0
-
-setInterval(()=>{
-chips.forEach(c=>c.classList.remove("active"))
-current=(current+1)%chips.length
-chips[current].classList.add("active")
-},2200)
-
-/* TEAM EXPAND */
-
-function toggleBio(card){
-card.classList.toggle("active")
-}
-
-/* SCROLL FADE */
-
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show")
-}
-})
-})
-
-document.querySelectorAll(".fade").forEach(el=>{
-observer.observe(el)
-})
-
-</script>
 
 </body>
 </html>
