@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -21,7 +20,7 @@ overflow-x:hidden;
 }
 
 .section{
-padding:60px 110px;
+padding:70px 110px;
 }
 
 /* NAVBAR */
@@ -60,8 +59,6 @@ padding:70px 110px 40px 110px;
 background:linear-gradient(120deg,#f5f2fa,#eef4ff,#f9f2f4);
 background-size:400% 400%;
 animation:heroGradient 16s ease infinite;
-position:relative;
-overflow:hidden;
 }
 
 @keyframes heroGradient{
@@ -71,14 +68,14 @@ overflow:hidden;
 }
 
 .hero-text{
-max-width:900px;
+max-width:800px;
 }
 
 .hero-title{
 font-size:66px;
 font-weight:800;
 line-height:1.05;
-margin-bottom:12px;
+margin-bottom:10px;
 }
 
 .lab-title{
@@ -94,47 +91,9 @@ line-height:1.7;
 color:#555;
 }
 
-/* LOGO GLOW */
-
-.logo-glow-container{
-position:relative;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.logo-glow{
-position:absolute;
-width:520px;
-height:520px;
-
-background:
-radial-gradient(circle,
-rgba(255,140,80,0.45) 0%,
-rgba(200,70,120,0.35) 40%,
-rgba(120,60,200,0.25) 70%,
-transparent 80%);
-
-filter:blur(90px);
-animation:glowPulse 8s ease-in-out infinite;
-z-index:0;
-}
-
 .hero-logo{
-width:420px;
-position:relative;
-z-index:1;
+width:380px;
 animation:float 6s ease-in-out infinite;
-}
-
-@keyframes glowPulse{
-
-0%{transform:scale(1);opacity:0.8;}
-
-50%{transform:scale(1.15);opacity:1;}
-
-100%{transform:scale(1);opacity:0.8;}
-
 }
 
 @keyframes float{
@@ -160,7 +119,6 @@ font-size:14px;
 background:linear-gradient(90deg,#ffe9e2,#f1e8ff);
 color:#6a2d7a;
 opacity:.4;
-transition:.5s;
 }
 
 .tag-chip.active{
@@ -194,7 +152,7 @@ border:2px solid #555;
 background:white;
 }
 
-/* STATS */
+/* STATS (OVERLAPPING HERO) */
 
 .stats{
 background:linear-gradient(135deg,#231a3c,#6d275b,#f08c3f);
@@ -219,7 +177,9 @@ margin-bottom:4px;
 
 /* WHAT WE DO */
 
-.section{
+.what-section{
+padding:60px 110px;
+
 background:
 radial-gradient(circle at 20% 30%, rgba(255,160,120,0.12), transparent 40%),
 radial-gradient(circle at 80% 70%, rgba(120,90,200,0.12), transparent 40%),
@@ -237,7 +197,7 @@ background:linear-gradient(90deg,#f36a3e,#c94a55,#6a2d7a);
 color:transparent;
 }
 
-/* GRID */
+/* CARDS */
 
 .research-grid{
 display:flex;
@@ -246,20 +206,16 @@ gap:40px;
 flex-wrap:wrap;
 }
 
-/* CARDS */
-
 .research-card{
-width:360px;
+width:340px;
 border-radius:28px;
 overflow:hidden;
-cursor:pointer;
 transition:transform .4s ease, box-shadow .4s ease;
 animation:floatCard 6s ease-in-out infinite;
 }
 
 .research-card img{
 width:100%;
-display:block;
 }
 
 .research-card:hover{
@@ -273,10 +229,13 @@ box-shadow:0 25px 50px rgba(0,0,0,0.25);
 100%{transform:translateY(0px)}
 }
 
+.research-card:nth-child(2){animation-delay:1s;}
+.research-card:nth-child(3){animation-delay:2s;}
+
 /* AFFILIATIONS */
 
 .affiliations{
-padding:35px 0 25px 0;
+padding:40px 0 30px 0;
 text-align:center;
 background:linear-gradient(180deg,#f6f4f8,#eef1f7);
 }
@@ -290,7 +249,6 @@ margin-bottom:20px;
 .affiliation-container img{
 width:95%;
 max-width:1600px;
-object-fit:contain;
 }
 
 /* TEAM */
@@ -345,6 +303,7 @@ display:none;
 
 <body>
 
+
 <!-- NAVBAR -->
 
 <nav class="navbar">
@@ -381,7 +340,7 @@ Welcome to <span class="lab-title">Illumina Health Lab</span>
 </h1>
 
 <p>
-Welcome to the central hub for all Illumina Health Lab projects, resources, and collaborations. Illumina Health Lab advances research at the intersection of health equity, the social determinants of health, medicine, and artificial intelligence.
+Welcome to the central hub for all Illumina Health Lab projects, resources, and collaborations. Illumina Health Lab advances research at the intersection of health equity, medicine, artificial intelligence, and the social determinants of health.
 </p>
 
 <div class="buttons">
@@ -391,15 +350,107 @@ Welcome to the central hub for all Illumina Health Lab projects, resources, and 
 
 </div>
 
-<div class="logo-glow-container">
-
-<div class="logo-glow"></div>
-
 <img class="hero-logo" src="illumina-logo.png">
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div>
+<h1>30+</h1>
+Researchers
+</div>
+
+<div>
+<h1>4</h1>
+Countries
+</div>
+
+<div>
+<h1>20+</h1>
+Active Projects
+</div>
+
+<div>
+<h1>10+</h1>
+Partner Institutions
+</div>
+
+</section>
+
+
+<!-- WHAT WE DO -->
+
+<section class="what-section">
+
+<h2 class="section-title">What We Do</h2>
+
+<div class="research-grid">
+
+<div class="research-card">
+<img src="7.png">
+</div>
+
+<div class="research-card">
+<img src="8.png">
+</div>
+
+<div class="research-card">
+<img src="9.png">
+</div>
 
 </div>
 
 </section>
+
+
+<!-- AFFILIATIONS -->
+
+<section class="affiliations">
+
+<h2 class="affiliation-title">Affiliated Institutions</h2>
+
+<div class="affiliation-container">
+<img src="affiliations.png">
+</div>
+
+</section>
+
+
+<!-- TEAM -->
+
+<section class="section">
+
+<h2 class="section-title">Our Team</h2>
+
+<div class="team">
+
+<div class="member" onclick="this.classList.toggle('active')">
+
+<img src="imeth_headshot.png">
+
+<div class="member-info">
+
+<h3>Imeth Illamperuma</h3>
+<div class="subtitle">Founder & Director</div>
+
+<p class="bio short">Founder of Illumina Health Lab.</p>
+
+<p class="bio long">
+Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary research network focused on health equity, cardiometabolic disease, and ethical AI applications in healthcare.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
 
 </body>
 </html>
