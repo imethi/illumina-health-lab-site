@@ -2,15 +2,99 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>About | Illumina Health Lab</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+/* GLOBAL */
+
+body{
+margin:0;
+font-family:"Segoe UI",system-ui;
+background:#f4f2f6;
+color:#2b2b2b;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 70px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-left img{
+height:70px;
+}
+
+.nav-right{
+display:flex;
+gap:30px;
+font-weight:600;
+}
+
+.nav-right a{
+text-decoration:none;
+color:#333;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:90px 40px;
+}
+
+/* SECTION BACKGROUND */
+
+.section{
+background:
+radial-gradient(circle at 20% 30%, rgba(255,160,120,0.12), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(120,90,200,0.12), transparent 40%),
+linear-gradient(180deg,#f6f3fa,#eef2fb);
+min-height:100vh;
+}
+
+/* TITLE */
+
+.section-title{
+font-size:44px;
+font-weight:800;
+margin-bottom:30px;
+
+background:linear-gradient(90deg,#f36a3e,#c94a55,#6a2d7a);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+/* TEXT */
+
+.about-text{
+font-size:18px;
+line-height:1.75;
+color:#555;
+}
+
+.about-text p{
+margin-bottom:24px;
+}
+
+</style>
 
 </head>
 
 <body>
+
+<!-- NAVBAR -->
 
 <nav class="navbar">
 
@@ -30,27 +114,33 @@
 </nav>
 
 
+<!-- ABOUT SECTION -->
+
 <section class="section">
 
 <div class="container">
 
-<h2 class="section-title">About Illumina Health Lab</h2>
+<h1 class="section-title">About Illumina Health Lab</h1>
+
+<div class="about-text">
 
 <p>
 Illumina Health Lab is an interdisciplinary research collective advancing work at the intersection of medicine, artificial intelligence, and health equity. Our mission is to investigate how structural and social determinants shape health outcomes and to develop intelligent, ethical approaches that strengthen healthcare systems worldwide.
 </p>
 
-<br>
-
 <p>
 With researchers based across Canada, the United States, and the United Kingdom, the lab brings together students, clinicians, and emerging scholars committed to addressing some of the most pressing challenges in global health.
 </p>
 
-<br>
+<p>
+A major focus of our work centers on cardiovascular and cardiometabolic disease—including hypertension, diabetes, obesity, and cardiovascular disease—and how inequities in policy, access, and environment influence prevention, diagnosis, and outcomes.
+</p>
 
 <p>
-A major focus of our work centers on cardiovascular and cardiometabolic disease—including hypertension, diabetes, and obesity—and how inequities in policy, access, and environment influence prevention, diagnosis, and outcomes.
+Through collaborative research, mentorship, and innovation, Illumina Health Lab aims to illuminate hidden injustices within health systems, generate evidence that uplifts marginalized populations, and design solutions that advance more equitable and effective healthcare worldwide.
 </p>
+
+</div>
 
 </div>
 
