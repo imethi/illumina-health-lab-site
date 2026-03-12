@@ -86,11 +86,8 @@ color:#333;
 /* HERO */
 
 .hero{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:70px 110px 60px 110px;
-position:relative;
+padding:80px 0;
+}
 
 background:
 radial-gradient(circle at 20% 20%, rgba(255,120,90,0.25), transparent 40%),
@@ -221,7 +218,7 @@ margin-bottom:4px;
 /* SECTIONS */
 
 .section{
-padding:80px 110px;
+padding:80px 0px;
 
 background:
 radial-gradient(circle at 25% 40%, rgba(255,140,100,0.12), transparent 45%),
@@ -240,13 +237,16 @@ background:linear-gradient(90deg,#f36a3e,#c94a55,#6a2d7a);
 color:transparent;
 }
 
+<section class="section fade">
+<div class="container">
+  
 /* GRID */
 
 .research-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:40px;
-max-width:1300px;
+max-width:1400px;
 margin:auto;
 align-items:center;
 }
@@ -410,6 +410,7 @@ transform:translateY(0);
 <!-- HERO -->
 
 <section class="hero">
+<div class="container hero-content">
 
 <div class="hero-text">
 
@@ -440,7 +441,13 @@ Through collaborative research, mentorship, and innovation, Illumina Health Lab 
 
 </section>
 
-
+.hero-content{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
+}
+  
 <!-- STATS -->
 
 <section class="stats">
