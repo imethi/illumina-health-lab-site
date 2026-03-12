@@ -20,10 +20,6 @@ color:#2b2b2b;
 overflow-x:hidden;
 }
 
-.section{
-padding:100px 110px;
-}
-
 /* NAVBAR */
 
 .navbar{
@@ -105,32 +101,7 @@ animation:float 6s ease-in-out infinite;
 100%{transform:translateY(0)}
 }
 
-/* HERO BLURS */
-
-.hero-blur{
-position:absolute;
-border-radius:50%;
-filter:blur(120px);
-opacity:.35;
-}
-
-.hero-blur1{
-width:350px;
-height:350px;
-background:#ff9a66;
-top:-120px;
-left:-120px;
-}
-
-.hero-blur2{
-width:400px;
-height:400px;
-background:#6a2d7a;
-bottom:-120px;
-right:-100px;
-}
-
-/* TAGLINE CHIPS */
+/* TAGLINE */
 
 .tagline{
 display:flex;
@@ -154,7 +125,6 @@ transition:.5s;
 opacity:1;
 background:linear-gradient(90deg,#f36a3e,#6a2d7a);
 color:white;
-box-shadow:0 6px 14px rgba(0,0,0,0.12);
 }
 
 /* BUTTONS */
@@ -182,31 +152,47 @@ border:2px solid #555;
 background:white;
 }
 
-/* SECTION TITLE */
+/* WHAT WE DO SECTION */
 
-.section-title{
-font-size:36px;
-font-weight:700;
-margin-bottom:60px;
-text-align:center;
+.section{
+padding:140px 110px;
+
+background:
+radial-gradient(circle at 20% 30%, rgba(255,160,120,0.12), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(120,90,200,0.12), transparent 40%),
+linear-gradient(180deg,#f6f3fa,#eef2fb);
 }
 
-/* WHAT WE DO */
+.section-title{
+font-size:42px;
+font-weight:700;
+margin-bottom:80px;
+text-align:center;
+
+background:linear-gradient(90deg,#f36a3e,#c94a55,#6a2d7a);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+/* GRID */
 
 .research-grid{
 display:flex;
 justify-content:center;
-gap:60px;
+gap:45px;
 flex-wrap:wrap;
 }
 
+/* CARDS */
+
 .research-card{
-width:340px;
+width:380px;
 border-radius:28px;
 overflow:hidden;
 cursor:pointer;
 transition:transform .4s ease, box-shadow .4s ease;
 animation:floatCard 6s ease-in-out infinite;
+position:relative;
 }
 
 .research-card img{
@@ -217,6 +203,16 @@ display:block;
 .research-card:hover{
 transform:translateY(-14px) scale(1.05);
 box-shadow:0 25px 50px rgba(0,0,0,0.25);
+}
+
+.research-card::before{
+content:"";
+position:absolute;
+inset:-40px;
+background:radial-gradient(circle, rgba(255,180,120,0.25), transparent 70%);
+z-index:-1;
+filter:blur(30px);
+opacity:.5;
 }
 
 @keyframes floatCard{
@@ -309,7 +305,7 @@ display:block;
 display:none;
 }
 
-/* SCROLL ANIMATIONS */
+/* SCROLL ANIMATION */
 
 .fade{
 opacity:0;
@@ -372,9 +368,6 @@ Our work focuses especially on cardiovascular and cardiometabolic health — exp
 inequities shape risk, prevention, diagnosis, and outcomes across conditions including hypertension,
 diabetes, obesity, and cardiovascular disease.
 
-We aim to illuminate hidden injustices within health systems, generate evidence that uplifts
-marginalized populations, and design intelligent, ethical tools that strengthen equitable care.
-
 </p>
 
 <div class="buttons">
@@ -385,9 +378,6 @@ marginalized populations, and design intelligent, ethical tools that strengthen 
 </div>
 
 <img class="hero-logo" src="illumina-logo.png">
-
-<div class="hero-blur hero-blur1"></div>
-<div class="hero-blur hero-blur2"></div>
 
 </section>
 
@@ -463,7 +453,7 @@ Universities
 
 <div class="member" onclick="toggleBio(this)">
 
-<img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+<img src="imethillamperuma headshot.png">
 
 <div class="member-info">
 
@@ -473,8 +463,8 @@ Universities
 <p class="bio short">Founder of Illumina Health Lab.</p>
 
 <p class="bio long">
-Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary research network focused on health equity,
-cardiometabolic disease, and ethical applications of artificial intelligence in healthcare.
+Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary research network focused on
+health equity, cardiometabolic disease, and ethical AI applications in healthcare.
 </p>
 
 </div>
@@ -521,5 +511,4 @@ observer.observe(el)
 </script>
 
 </body>
-
 </html>
