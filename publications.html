@@ -18,27 +18,43 @@ color:#222;
 }
 
 
-<!-- NAVBAR -->
+/* NAVBAR */
 
-<div class="navbar">
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+background:white;
+box-shadow:0 2px 8px rgba(0,0,0,0.06);
+}
 
-<div class="nav-left">
+.nav-left{
+display:flex;
+align-items:center;
+gap:14px;
+}
 
-<img src="Full logo.png" alt="Illumina Health Lab">
+.nav-left img{
+height:55px;
+}
 
-</div>
+.nav-right{
+display:flex;
+align-items:center;
+}
 
-<div class="nav-right">
+.nav-right a{
+margin-left:28px;
+text-decoration:none;
+font-weight:500;
+color:#333;
+}
 
-<a href="index.html">Home</a>
-<a href="about.html">About Us</a>
-<a href="team.html">Team</a>
-<a href="publications.html">Publications</a>
-<a href="getinvolved.html">Get Involved</a>
+.nav-right a:hover{
+color:#8b2ce2;
+}
 
-</div>
-
-</div>
 
 /* HEADER */
 
@@ -53,7 +69,6 @@ margin-bottom:10px;
 }
 
 
-
 /* PUBLICATIONS SECTION */
 
 .publications-section{
@@ -61,7 +76,6 @@ max-width:1000px;
 margin:auto;
 padding:20px;
 }
-
 
 
 /* PUBLICATION CARD */
@@ -84,7 +98,6 @@ transform:translateY(-4px);
 }
 
 
-
 /* TITLE */
 
 .pub-title{
@@ -92,7 +105,6 @@ font-size:20px;
 font-weight:600;
 margin-bottom:10px;
 }
-
 
 
 /* META */
@@ -104,8 +116,7 @@ margin-bottom:15px;
 }
 
 
-
-/* LINK */
+/* LINK BUTTON */
 
 .pub-link{
 
@@ -143,7 +154,9 @@ opacity:0.9;
 <div class="navbar">
 
 <div class="nav-left">
-<img src="illumina_logo.png">
+
+<img src="illumina_logo.png" alt="Illumina Health Lab">
+
 </div>
 
 <div class="nav-right">
@@ -210,6 +223,7 @@ View Publication
 <div class="pub-title">
 
 Structural Delay Burden as a Social Determinant of ACS Outcomes: A Missing Variable for Sri Lanka’s National Registry
+
 </div>
 
 <div class="pub-meta">
