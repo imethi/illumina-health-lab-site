@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -17,10 +18,6 @@ font-family:"Segoe UI",system-ui;
 background:#f4f2f6;
 color:#2b2b2b;
 overflow-x:hidden;
-}
-
-.section{
-padding:70px 110px;
 }
 
 /* NAVBAR */
@@ -55,10 +52,12 @@ color:#333;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:70px 110px 40px 110px;
+padding:110px;
 background:linear-gradient(120deg,#f5f2fa,#eef4ff,#f9f2f4);
 background-size:400% 400%;
 animation:heroGradient 16s ease infinite;
+position:relative;
+overflow:hidden;
 }
 
 @keyframes heroGradient{
@@ -68,14 +67,14 @@ animation:heroGradient 16s ease infinite;
 }
 
 .hero-text{
-max-width:800px;
+max-width:900px;
 }
 
 .hero-title{
-font-size:66px;
+font-size:68px;
 font-weight:800;
 line-height:1.05;
-margin-bottom:10px;
+margin-bottom:18px;
 }
 
 .lab-title{
@@ -86,19 +85,19 @@ color:transparent;
 }
 
 .hero p{
-font-size:18px;
-line-height:1.7;
+font-size:19px;
+line-height:1.85;
 color:#555;
 }
 
 .hero-logo{
-width:380px;
+width:420px;
 animation:float 6s ease-in-out infinite;
 }
 
 @keyframes float{
 0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
+50%{transform:translateY(-12px)}
 100%{transform:translateY(0)}
 }
 
@@ -106,19 +105,20 @@ animation:float 6s ease-in-out infinite;
 
 .tagline{
 display:flex;
-gap:10px;
-margin-bottom:15px;
+gap:12px;
+margin-bottom:20px;
 flex-wrap:wrap;
 }
 
 .tag-chip{
-padding:6px 14px;
+padding:8px 16px;
 border-radius:30px;
 font-weight:600;
-font-size:14px;
+font-size:15px;
 background:linear-gradient(90deg,#ffe9e2,#f1e8ff);
 color:#6a2d7a;
 opacity:.4;
+transition:.5s;
 }
 
 .tag-chip.active{
@@ -130,15 +130,15 @@ color:white;
 /* BUTTONS */
 
 .buttons{
-margin-top:18px;
+margin-top:25px;
 }
 
 .btn{
-padding:12px 24px;
+padding:14px 28px;
 border-radius:40px;
 border:none;
 font-weight:700;
-margin-right:10px;
+margin-right:12px;
 cursor:pointer;
 }
 
@@ -152,33 +152,10 @@ border:2px solid #555;
 background:white;
 }
 
-/* STATS (OVERLAPPING HERO) */
+/* WHAT WE DO SECTION */
 
-.stats{
-background:linear-gradient(135deg,#231a3c,#6d275b,#f08c3f);
-color:white;
-padding:40px 60px;
-display:flex;
-justify-content:space-around;
-text-align:center;
-
-margin-top:-40px;
-border-radius:20px;
-width:85%;
-margin-left:auto;
-margin-right:auto;
-box-shadow:0 10px 30px rgba(0,0,0,0.25);
-}
-
-.stats h1{
-font-size:38px;
-margin-bottom:4px;
-}
-
-/* WHAT WE DO */
-
-.what-section{
-padding:60px 110px;
+.section{
+padding:140px 110px;
 
 background:
 radial-gradient(circle at 20% 30%, rgba(255,160,120,0.12), transparent 40%),
@@ -187,9 +164,9 @@ linear-gradient(180deg,#f6f3fa,#eef2fb);
 }
 
 .section-title{
-font-size:38px;
+font-size:42px;
 font-weight:700;
-margin-bottom:35px;
+margin-bottom:80px;
 text-align:center;
 
 background:linear-gradient(90deg,#f36a3e,#c94a55,#6a2d7a);
@@ -197,58 +174,90 @@ background:linear-gradient(90deg,#f36a3e,#c94a55,#6a2d7a);
 color:transparent;
 }
 
-/* CARDS */
+/* GRID */
 
 .research-grid{
 display:flex;
 justify-content:center;
-gap:40px;
+gap:45px;
 flex-wrap:wrap;
 }
 
+/* CARDS */
+
 .research-card{
-width:340px;
+width:380px;
 border-radius:28px;
 overflow:hidden;
+cursor:pointer;
 transition:transform .4s ease, box-shadow .4s ease;
 animation:floatCard 6s ease-in-out infinite;
+position:relative;
 }
 
 .research-card img{
 width:100%;
+display:block;
 }
 
 .research-card:hover{
-transform:translateY(-12px) scale(1.05);
+transform:translateY(-14px) scale(1.05);
 box-shadow:0 25px 50px rgba(0,0,0,0.25);
+}
+
+.research-card::before{
+content:"";
+position:absolute;
+inset:-40px;
+background:radial-gradient(circle, rgba(255,180,120,0.25), transparent 70%);
+z-index:-1;
+filter:blur(30px);
+opacity:.5;
 }
 
 @keyframes floatCard{
 0%{transform:translateY(0px)}
-50%{transform:translateY(-8px)}
+50%{transform:translateY(-10px)}
 100%{transform:translateY(0px)}
 }
 
 .research-card:nth-child(2){animation-delay:1s;}
 .research-card:nth-child(3){animation-delay:2s;}
 
+/* STATS */
+
+.stats{
+background:linear-gradient(135deg,#231a3c,#6d275b,#f08c3f);
+color:white;
+padding:80px;
+display:flex;
+justify-content:space-around;
+text-align:center;
+}
+
+.stats h1{
+font-size:42px;
+margin-bottom:6px;
+}
+
 /* AFFILIATIONS */
 
 .affiliations{
-padding:40px 0 30px 0;
+padding:90px 0;
 text-align:center;
 background:linear-gradient(180deg,#f6f4f8,#eef1f7);
 }
 
 .affiliation-title{
-font-size:30px;
+font-size:34px;
 font-weight:700;
-margin-bottom:20px;
+margin-bottom:40px;
 }
 
 .affiliation-container img{
 width:95%;
 max-width:1600px;
+object-fit:contain;
 }
 
 /* TEAM */
@@ -256,8 +265,7 @@ max-width:1600px;
 .team{
 display:flex;
 gap:30px;
-margin-top:15px;
-justify-content:center;
+margin-top:40px;
 }
 
 .member{
@@ -276,13 +284,13 @@ object-fit:cover;
 }
 
 .member-info{
-padding:18px;
+padding:20px;
 }
 
 .subtitle{
 color:#777;
 font-weight:600;
-margin-top:4px;
+margin-top:5px;
 }
 
 .bio.long{
@@ -297,12 +305,24 @@ display:block;
 display:none;
 }
 
+/* SCROLL ANIMATION */
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
 </style>
 
 </head>
 
 <body>
-
 
 <!-- NAVBAR -->
 
@@ -320,7 +340,6 @@ display:none;
 </div>
 
 </nav>
-
 
 <!-- HERO -->
 
@@ -340,7 +359,15 @@ Welcome to <span class="lab-title">Illumina Health Lab</span>
 </h1>
 
 <p>
-Welcome to the central hub for all Illumina Health Lab projects, resources, and collaborations. Illumina Health Lab advances research at the intersection of health equity, medicine, artificial intelligence, and the social determinants of health.
+
+Welcome to the central hub for all Illumina Health Lab projects, resources, and collaborations.
+Illumina Health Lab advances research at the intersection of health equity, the social determinants
+of health, medicine, and artificial intelligence.
+
+Our work focuses especially on cardiovascular and cardiometabolic health — exploring how structural
+inequities shape risk, prevention, diagnosis, and outcomes across conditions including hypertension,
+diabetes, obesity, and cardiovascular disease.
+
 </p>
 
 <div class="buttons">
@@ -354,37 +381,9 @@ Welcome to the central hub for all Illumina Health Lab projects, resources, and 
 
 </section>
 
-
-<!-- STATS -->
-
-<section class="stats">
-
-<div>
-<h1>30+</h1>
-Researchers
-</div>
-
-<div>
-<h1>4</h1>
-Countries
-</div>
-
-<div>
-<h1>20+</h1>
-Active Projects
-</div>
-
-<div>
-<h1>10+</h1>
-Partner Institutions
-</div>
-
-</section>
-
-
 <!-- WHAT WE DO -->
 
-<section class="what-section">
+<section class="section fade">
 
 <h2 class="section-title">What We Do</h2>
 
@@ -406,6 +405,31 @@ Partner Institutions
 
 </section>
 
+<!-- STATS -->
+
+<section class="stats fade">
+
+<div>
+<h1>50+</h1>
+Researchers
+</div>
+
+<div>
+<h1>20+</h1>
+Active Projects
+</div>
+
+<div>
+<h1>10+</h1>
+Partner Institutions
+</div>
+
+<div>
+<h1>10+</h1>
+Universities
+</div>
+
+</section>
 
 <!-- AFFILIATIONS -->
 
@@ -419,18 +443,17 @@ Partner Institutions
 
 </section>
 
-
 <!-- TEAM -->
 
-<section class="section">
+<section class="section fade">
 
 <h2 class="section-title">Our Team</h2>
 
 <div class="team">
 
-<div class="member" onclick="this.classList.toggle('active')">
+<div class="member" onclick="toggleBio(this)">
 
-<img src="imeth_headshot.png">
+<img src="imethillamperuma headshot.png">
 
 <div class="member-info">
 
@@ -440,7 +463,8 @@ Partner Institutions
 <p class="bio short">Founder of Illumina Health Lab.</p>
 
 <p class="bio long">
-Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary research network focused on health equity, cardiometabolic disease, and ethical AI applications in healthcare.
+Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary research network focused on
+health equity, cardiometabolic disease, and ethical AI applications in healthcare.
 </p>
 
 </div>
@@ -451,6 +475,40 @@ Imeth Illamperuma founded Illumina Health Lab to build an interdisciplinary rese
 
 </section>
 
+<script>
+
+/* TAG ROTATION */
+
+const chips=document.querySelectorAll(".tag-chip")
+let current=0
+
+setInterval(()=>{
+chips.forEach(c=>c.classList.remove("active"))
+current=(current+1)%chips.length
+chips[current].classList.add("active")
+},2200)
+
+/* TEAM EXPAND */
+
+function toggleBio(card){
+card.classList.toggle("active")
+}
+
+/* SCROLL FADE */
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show")
+}
+})
+})
+
+document.querySelectorAll(".fade").forEach(el=>{
+observer.observe(el)
+})
+
+</script>
 
 </body>
 </html>
