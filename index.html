@@ -21,7 +21,7 @@ overflow-x:hidden;
 }
 
 .section{
-padding:80px 110px;
+padding:100px 110px;
 }
 
 /* NAVBAR */
@@ -56,10 +56,10 @@ color:#333;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:90px 110px;
+padding:110px;
 background:linear-gradient(120deg,#f5f2fa,#eef4ff,#f9f2f4);
 background-size:400% 400%;
-animation:heroGradient 15s ease infinite;
+animation:heroGradient 16s ease infinite;
 position:relative;
 overflow:hidden;
 }
@@ -105,7 +105,7 @@ animation:float 6s ease-in-out infinite;
 100%{transform:translateY(0)}
 }
 
-/* HERO GLOW */
+/* HERO BLURS */
 
 .hero-blur{
 position:absolute;
@@ -130,7 +130,7 @@ bottom:-120px;
 right:-100px;
 }
 
-/* TAG CAROUSEL */
+/* TAGLINE CHIPS */
 
 .tagline{
 display:flex;
@@ -182,35 +182,66 @@ border:2px solid #555;
 background:white;
 }
 
-/* RESEARCH CARDS */
+/* SECTION TITLE */
 
-.cards{
+.section-title{
+font-size:36px;
+font-weight:700;
+margin-bottom:60px;
+text-align:center;
+}
+
+/* WHAT WE DO */
+
+.research-grid{
 display:flex;
-gap:25px;
-margin-top:30px;
+justify-content:center;
+gap:60px;
+flex-wrap:wrap;
 }
 
-.card{
-flex:1;
-padding:40px;
-border-radius:20px;
-color:white;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
+.research-card{
+width:340px;
+border-radius:28px;
+overflow:hidden;
+cursor:pointer;
+transition:transform .4s ease, box-shadow .4s ease;
+animation:floatCard 6s ease-in-out infinite;
 }
 
-.card1{background:linear-gradient(135deg,#3d1d70,#c94a55);}
-.card2{background:linear-gradient(135deg,#c43b55,#f09a36);}
-.card3{background:linear-gradient(135deg,#f07b43,#f5c34b);}
+.research-card img{
+width:100%;
+display:block;
+}
+
+.research-card:hover{
+transform:translateY(-14px) scale(1.05);
+box-shadow:0 25px 50px rgba(0,0,0,0.25);
+}
+
+@keyframes floatCard{
+0%{transform:translateY(0px)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0px)}
+}
+
+.research-card:nth-child(2){animation-delay:1s;}
+.research-card:nth-child(3){animation-delay:2s;}
 
 /* STATS */
 
 .stats{
 background:linear-gradient(135deg,#231a3c,#6d275b,#f08c3f);
 color:white;
-padding:70px;
+padding:80px;
 display:flex;
 justify-content:space-around;
 text-align:center;
+}
+
+.stats h1{
+font-size:42px;
+margin-bottom:6px;
 }
 
 /* AFFILIATIONS */
@@ -218,21 +249,13 @@ text-align:center;
 .affiliations{
 padding:90px 0;
 text-align:center;
-
-background:
-linear-gradient(180deg,#f6f4f8,#eef1f7);
+background:linear-gradient(180deg,#f6f4f8,#eef1f7);
 }
 
 .affiliation-title{
 font-size:34px;
 font-weight:700;
 margin-bottom:40px;
-}
-
-.affiliation-container{
-width:100%;
-display:flex;
-justify-content:center;
 }
 
 .affiliation-container img{
@@ -286,7 +309,7 @@ display:block;
 display:none;
 }
 
-/* SCROLL ANIMATION */
+/* SCROLL ANIMATIONS */
 
 .fade{
 opacity:0;
@@ -305,7 +328,6 @@ transform:translateY(0);
 
 <body>
 
-
 <!-- NAVBAR -->
 
 <nav class="navbar">
@@ -322,7 +344,6 @@ transform:translateY(0);
 </div>
 
 </nav>
-
 
 <!-- HERO -->
 
@@ -370,34 +391,29 @@ marginalized populations, and design intelligent, ethical tools that strengthen 
 
 </section>
 
-
-<!-- RESEARCH -->
+<!-- WHAT WE DO -->
 
 <section class="section fade">
 
-<h2>What We Do</h2>
+<h2 class="section-title">What We Do</h2>
 
-<div class="cards">
+<div class="research-grid">
 
-<div class="card card1">
-<h3>Medicine & AI</h3>
-<p>Developing ethical AI tools that transform clinical decision making.</p>
+<div class="research-card">
+<img src="7.png">
 </div>
 
-<div class="card card2">
-<h3>Global Health & Equity</h3>
-<p>Addressing structural inequities in population health.</p>
+<div class="research-card">
+<img src="8.png">
 </div>
 
-<div class="card card3">
-<h3>Cardiovascular Research</h3>
-<p>Advancing cardiometabolic prevention and outcomes science.</p>
+<div class="research-card">
+<img src="9.png">
 </div>
 
 </div>
 
 </section>
-
 
 <!-- STATS -->
 
@@ -425,27 +441,23 @@ Universities
 
 </section>
 
-
-<!-- AFFILIATED INSTITUTIONS -->
+<!-- AFFILIATIONS -->
 
 <section class="affiliations">
 
 <h2 class="affiliation-title">Affiliated Institutions</h2>
 
 <div class="affiliation-container">
-
 <img src="affiliations.png">
-
 </div>
 
 </section>
-
 
 <!-- TEAM -->
 
 <section class="section fade">
 
-<h2>Our Team</h2>
+<h2 class="section-title">Our Team</h2>
 
 <div class="team">
 
@@ -473,8 +485,9 @@ cardiometabolic disease, and ethical applications of artificial intelligence in 
 
 </section>
 
-
 <script>
+
+/* TAG ROTATION */
 
 const chips=document.querySelectorAll(".tag-chip")
 let current=0
@@ -483,11 +496,15 @@ setInterval(()=>{
 chips.forEach(c=>c.classList.remove("active"))
 current=(current+1)%chips.length
 chips[current].classList.add("active")
-},2000)
+},2200)
+
+/* TEAM EXPAND */
 
 function toggleBio(card){
 card.classList.toggle("active")
 }
+
+/* SCROLL FADE */
 
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
